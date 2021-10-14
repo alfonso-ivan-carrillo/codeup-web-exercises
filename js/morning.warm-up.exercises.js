@@ -16,4 +16,12 @@ if (false){
 }
 
 
+var hadBreakfast = Boolean(Math.round(Math.random()));
+//var hadBreakfastMessage = (hadBreakfast) ? alert("Sure did, its called having a Monster.") : alert("Who has time for breakfast!");
+var hadBreakfastMessage = (hadBreakfast) ? "Sure did, its called having a Monster" : "Who has time for breakfast";
+
+console.log(hadBreakfast);
+console.log(hadBreakfastMessage);
+
+
 })();
