@@ -79,7 +79,7 @@ function analyzeColorSwitch(randomColor){
 
 /* ########################################################################## */
 var userColor = prompt("What is your favorite color?").toLowerCase();
-alert("The user inputed: " + userColor + ". " + analyzeColorSwitch(userColor));
+alert("Your favorite color is " + userColor + ".  " + analyzeColorSwitch(userColor));
 
 /**
  * TODO:
@@ -104,19 +104,19 @@ function calculateTotal(luckyNumber, totalAmount){
     if (luckyNumber === 1){
         var discount = totalAmount * .10;
         totalAmount -= discount;
-        return "Your total discounted price is $" + totalAmount + ".";
+        return "Your total discounted price is $" + totalAmount.toFixed(2) + ".";
     } else if (luckyNumber === 2) {
         discount = totalAmount * .25;
         totalAmount -= discount;
-        return "Your total discounted prices is $"+ totalAmount + ".";
+        return "Your total discounted prices is $"+ totalAmount.toFixed(2) + ".";
     } else if (luckyNumber === 3) {
         discount = totalAmount * .35;
         totalAmount -= discount;
-        return "Your total discounted price is $" + totalAmount + ".";
+        return "Your total discounted price is $" + totalAmount.toFixed(2) + ".";
     } else if (luckyNumber === 4){
         discount = totalAmount * .50;
         totalAmount -= discount;
-        return "Your total discounted price is $" + totalAmount + ".";
+        return "Your total discounted price is $" + totalAmount.toFixed(2) + ".";
     } else if (luckyNumber === 5){
         totalAmount -= totalAmount;
         return "Congrats! You're purchase is on us.";
@@ -168,24 +168,28 @@ alert("Your price before the discount was $" + totalBill.toFixed(2) + ". " + cal
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
-var userNumber = confirm("Would you like to enter a number?");
 
-var numberInput = (userNumber) ? prompt("Please enter a number.") : alert("Ah, too bad.");
-
-//how I did it
-function numInfo(number) {
-        var isANumber = (!isNaN(number)) ? alert("its a number") : alert("not a number");
-        var evenOdd = (numberInput % 2 == 0) ? alert("even") : alert("odd");
-
-        var posNeg = (numberInput > 0) ? alert("positive") : alert("negative");
-
-        var addOne = alert(parseFloat(numberInput) + 100);
+if (confirm("Would you like to play a game in the non Saw the movie way?")){
+    var userNum = prompt("Enter a number if you wish to continue.");
+    numInfo(userNum);
+} else {
+    alert("Ah, that's too bad.");
 }
 
+//how I did it
+function numInfo(num) {
+        if (Number(num)){
+            (num % 2 == 0) ? alert(num + " is an even number.") : alert(num + " is an odd number.");
+            (num > 0) ? alert(num + " is a positive number.") : alert(num + " is a negative number.");
+            alert(num + " Plus 100 is " + (parseFloat(num) + 100) + ".");
+        } else if (isNaN(num) === "true"){
+            alert("That is not a number.");
+        } else {
+            alert(num + " is not a number.");
+    }
+}
 
-numInfo(userNumber);
-
-// function playNumberGame(num){
+// Instructor Solution - function playNumberGame(num){
 //     var userNum = parseFloat(num);
 //     if (!isNaN(userNum)){
 //         if (userNum % 2 === 0){
