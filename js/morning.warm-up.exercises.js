@@ -23,5 +23,19 @@ var hadBreakfastMessage = (hadBreakfast) ? "Sure did, its called having a Monste
 console.log(hadBreakfast);
 console.log(hadBreakfastMessage);
 
+function typeCheck(input) {
+    if (typeof input === "string"){
+        return "Haha, its a string of a string."
+    } else {
+        return typeof input;
+    }
+}
+
+console.log(typeCheck(''));
+console.log(typeCheck(isNaN()));
+console.log(typeCheck(!false * 3));
+console.log(typeCheck(4 + '4'));
+console.log(!false * 3);  //!false is coercion into a 1 so 1 * 3 = 3
+
 
 })();
