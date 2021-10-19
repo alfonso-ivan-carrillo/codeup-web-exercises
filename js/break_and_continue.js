@@ -6,15 +6,15 @@
     var userNumber = prompt("To play game, please pick an odd number between 1 and 50.");
 
     function oddBallGame(input){
-        while (input % 2 === 0 || input > 50){
-             input = prompt("That even or above 50, try again.");
+        while (input % 2 === 0 || input > 50 || isNaN(input)){
+             input = prompt("Invalid entry, please try again.");
         }
 
         console.log("Number to skip is: " + input);
 
         for (var i = 1; i <= 50; i++){
             if (i == input){
-                console.log("Yikes " + input);
+                console.log("Yikes! Skipping this number: " + input);
                 continue;
             }
             if (i % 2 !== 0){
@@ -22,7 +22,7 @@
             }
         }
     }
-oddBallGame(userNumber);
+    oddBallGame(userNumber);
 
 
 
