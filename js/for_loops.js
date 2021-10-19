@@ -15,11 +15,11 @@ showMultiplicationTable(7);
 //exercise #2
 function oddEven(){
     for (var i = 1; i <= 10; i++){
-        var randomNum = Math.floor(Math.random() * 200) + 1;
+        var randomNum = Math.floor(Math.random() * 180) + 20;
         if (randomNum % 2 === 0){
-            console.log(randomNum + " is odd.");
-    } else {
             console.log(randomNum + " is even.");
+    } else {
+            console.log(randomNum + " is odd.");
             }
     }
 }
@@ -28,13 +28,12 @@ oddEven();
 
 //exercise #3
 function numberPyramid(rows){
-    var output = "";
     for (var i = 1; i <= rows; i++){
+        var output = "";
         for ( var j = 1; j <= i; j++) {
             output += i + "";
         }
         console.log(output);
-        output = "";
     }
 }
 

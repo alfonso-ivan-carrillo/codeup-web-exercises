@@ -5,7 +5,8 @@
     function timesTwo(){
         var x = 1;
         while (x < 65536){
-             x = x * 2;
+             // x = x * 2;
+                x *= 2;
             console.log(x);
         }
     }
