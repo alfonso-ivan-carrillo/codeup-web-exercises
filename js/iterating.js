@@ -51,6 +51,11 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+    // Walk-through by instructor
+    // function first(arr) {
+    // return arr[0];
+    // }
+    // console.log(first(name));
     function firstIndex(arr){
         for (var i = 0; i < arr.length; i++){
             console.log("The first item in the array is " + arr[0] + ".");
@@ -59,6 +64,11 @@
     }
     firstIndex(names);
 
+    // Walk-through by instructor
+    // function second(arr){
+    //     return arr[1];
+    // }
+    // console.log(second(name));
     function secondIndex(arr){
         for (var x = 0; x < arr.length; x++){
             console.log("The second item in the array is " + arr[1] + ".");
@@ -66,6 +76,12 @@
         }
     }
     secondIndex(names);
+
+
+    // function last(arr){
+    //     return arr[arr.length-1];
+    // }
+    // console.log(last(names));
 
     function lastIndex(arr) {
         arr.forEach(function(name,index){

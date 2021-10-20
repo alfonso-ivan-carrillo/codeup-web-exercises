@@ -21,14 +21,16 @@
 
     do {
         var conesSold = Math.floor(Math.random() * 5) + 1;
-        allCones -= conesSold;
-        console.log(conesSold + " cones sold.");
-        console.log("Cones left to meet daily goal " + allCones + ".");
-        if (conesSold > allCones){
-            console.log("Can't sell you " + conesSold + " I only have "+ allCones + " available." );
-            break;
+
+        // console.log(conesSold + " cones sold.");
+        // console.log("Cones left to meet daily goal " + allCones + ".");
+        if (conesSold <= allCones){
+            allCones -= conesSold;
+            console.log(conesSold + " cones sold." + " I have "+ allCones + " available." );
+        } else {
+            console.log("Sorry, I can't sell you " + conesSold + " we only have " + allCones + " available.");
         }
-    } while (allCones >= 0)
+    } while (allCones > 0)
 
 
 })();
