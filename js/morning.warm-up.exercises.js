@@ -57,7 +57,12 @@
 
     fizzBuzz();
 
+    var names = ["Bella", "Jack", "Lexi", "Buster"];
 
+    function secondToLast(arr){  // returns second to last item in arry
+        return arr[arr.length -2];
+    }
+    console.log(secondToLast(names));
 
 
 })();

@@ -93,5 +93,43 @@
 
     lastIndex(names);
 
+var shapes =["square", "rectangle", "circle", "triangle"]; //creates array
+console.log(shapes.length); // gives the number of elements in array
+console.log(shapes[1]); // gives the element - in this case "rectangle"
+
+//for loop to iterate array, i gives index number and shapes[i] provides element
+for (var i = 0; i < shapes.length; i++){
+    console.log(i + " Index number. Element is " + shapes[i]);
+}
+
+// for eachLoop to iterate array, shape is element and index is index number
+shapes.forEach(function (shape, index){
+    console.log("Here is a " + shape + " and it's index number is " + index + ".");
+})
+
+var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday"];
+
+daysOfTheWeek.unshift("Sunday"); //.unshift adds Sunday to beginning of array
+
+console.log(daysOfTheWeek);
+
+daysOfTheWeek.push("Friday", "Saturday"); //.push adds Friday and Saturday end of array
+console.log(daysOfTheWeek);
+
+console.log(daysOfTheWeek[daysOfTheWeek.length - 1]); // logs last item on array
+
+var removedDays = daysOfTheWeek.pop();  // removes last element in array - stored it in new variable removedDays
+console.log(removedDays);
+console.log(daysOfTheWeek);
+
+var secondRemovedDays = daysOfTheWeek.shift(); // removes first element in array
+console.log(secondRemovedDays);
+console.log(daysOfTheWeek);
+console.log(removedDays);
+
+var testDays = daysOfTheWeek.indexOf("Tuesday");
+console.log(testDays);
+testDays = daysOfTheWeek.lastIndexOf("Tuesday");
+console.log(testDays);
 
 })();
