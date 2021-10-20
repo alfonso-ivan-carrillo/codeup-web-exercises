@@ -42,9 +42,20 @@
 
      //extra practice
     var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
+    console.log(fruits);
+    console.log(fruits.length);
+    console.log(fruits.indexOf("apple"));
+    console.log(fruits[2]);
 
-    function allIndexOf(arr, item){
-        console.log(arr[item]);
+    function indexOfOne(arr, item){
+        console.log(arr.indexOf(item));
     }
-    allIndexOf(fruits, "apple");
+    indexOfOne(fruits, "guava");
+
+
+    function  allIndexesOf( arr, item){
+
+    }
+    allIndexesOf(fruits, "orange");
+
 })();
