@@ -47,15 +47,26 @@
     console.log(fruits.indexOf("apple"));
     console.log(fruits[2]);
 
-    function indexOfOne(arr, item){
-        console.log(arr.indexOf(item));
+
+    function first(arr){
+        return arr[0];
     }
-    indexOfOne(fruits, "guava");
+    console.log(first(fruits));
 
-
-    function  allIndexesOf( arr, item){
-
+    function secondToLast(arr){  // array[array.length-1];
+        return arr[arr.length - 1];
     }
-    allIndexesOf(fruits, "orange");
+    console.log(secondToLast(fruits));
+
+    function rest(arr){
+        arr.shift();
+        return arr;
+    }
+    console.log(rest(fruits));
+
+
+
+
+
 
 })();

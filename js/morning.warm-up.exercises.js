@@ -64,5 +64,13 @@
     }
     console.log(secondToLast(names));
 
+    //Morning exercises for 10/21/2021
+
+    function moveToEnd(array){
+        var loneElement = array.shift();
+        array.push(loneElement);
+        return array;
+    }
+    console.log(moveToEnd(names));
 
 })();
