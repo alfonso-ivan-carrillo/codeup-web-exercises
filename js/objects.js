@@ -158,6 +158,20 @@ console.log(books);
     for (var j = 0; j < books.length; j++){
         console.log("Book # " + (j + 1) + "\nTitle: " + books[j].title + "\nAuthor: " + books[j].author.firstName + " " + books[j].author.lastName);
     }
+    //
+    // function formatBook(title, author){
+    //     var counter = 0;
+    //     books.forEach(function(book, name){
+    //         if (title === book.title && author === book.author.firstName +" " + book.author.lastName){
+    //             counter +=1;
+    //             console.log("Book Info:");
+    //             console.log("Title: " + book.title);
+    //             console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    //         }
+    //     })
+    // }
+    // formatBook("Fight Club", "Chuck Palahniuk");
+    // formatBook("The Brief Wondrous Life of Oscar Wao", "Junot Diaz");
 
     /**
      * Bonus:
@@ -169,20 +183,46 @@ console.log(books);
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    /**
+     * instructor solution
+     *
+    * var library = [];
+    * function createBook(title, author){
+    *    // expected input: "firstName LastName
+    *    var namesArray = author.split(" ");
+    *        var book = {
+    *            title: title,
+    *            author: {
+    *                firstName: namesArray[0],
+    *                lastName: namesArray[1]
+    *            }
+    *        }
+    *        return library.push(book);
+    * }
+    *
+    * console.log(library);
+    */
+
+    var bookCollection = [];
 
     function createBook(title, author){
-        var counter = 0;
-        books.forEach(function(book, name){
-            if (title === book.title && author === book.author.firstName +" " + book.author.lastName){
-            counter +=1;
-            console.log("Book Info:");
-            console.log("Title: " + book.title);
-            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        //need to split the input of author to firstName and lastName
+        var writersName = author.split(" "); //separator is the blank space
+            var book = {
+                title: title,
+                author: {
+                    firstName: writersName[0],
+                    lastName: writersName[1]
+                }
             }
-            })
+            return bookCollection.push(book);   // pushing book to bookCollection
     }
-    createBook("Fight Club", "Chuck Palahniuk");
-    createBook("The Brief Wondrous Life of Oscar Wao", "Junot Diaz");
+
+    createBook("Drown", "Junot Diaz");
+    createBook("The Outsider", "Stephen King");
+    console.log(bookCollection);
+
+
 
     function showBookInfo(input){
         books.forEach(function(book){
@@ -194,9 +234,18 @@ console.log(books);
         })
     }
 
+
     showBookInfo("Chuck");
 
+    //based on instructor solution
+    function showBookInfoTwo(array){
+        for(var j = 0; j < array.length; j++){
+            console.log('Book # ' + (j + 1) + "\nTitle: " + array[j].title + "\nAuthor: " + array[j].author.firstName + " " + array[j].author.lastName)
+        }
+    }
 
+    showBookInfoTwo(bookCollection);
+    showBookInfoTwo(books);
 
 
 
