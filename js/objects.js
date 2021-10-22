@@ -16,6 +16,7 @@
         lastName: "Carrillo"
     }
     console.log(person);
+    console.log(person.firstName, person.lastName);
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -26,7 +27,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
     person.sayHello = function() {
-        return "Hello from " + this.firstName + " " + this.lastName;
+        return "Hello from " + this.firstName + " " + this.lastName + ".";
     }
     console.log(person.sayHello());
 
@@ -54,8 +55,7 @@
     ];
 
     shoppers.forEach(function (shopper){
-
-        if (shopper.amount >= 200){
+        if (shopper.amount > 200){
             var discount = shopper.amount * .12;
             var totalAmount = shopper.amount - discount;
             console.log(shopper.name + " spent $" + shopper.amount + ". His discount is $" + discount.toFixed(2) + " for a final amount of $" + totalAmount.toFixed(2));
@@ -63,6 +63,15 @@
             console.log(shopper.name + " did not spend enough. His final amount will be $" + shopper.amount + ".");
         }
     })
+    // function displayShopperAmount(arr){
+    //      arr.forEach(function(shopper){
+    //      if(shopper.amount > 200){
+    //          console.log(shopper.name + " spent: " + shopper.amount + "discount amount " + (shopper.amount * .12) + "The discounted amount is " + (shopper.amount - (shopper.amount * .12)));
+    //      } else {
+    //          console.log(shopper.name + " spent: " + shopper.amount + "Which does not qualify for a discount");
+    //      }
+    //      })
+    //      }
 
 
     /** TODO:
@@ -141,8 +150,15 @@ console.log(books);
     var count = 0;
     books.forEach(function(book){
         count +=1;
-        console.log("Book # "+ count  + " Title:" + book.title + " Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("Book # "+ count);
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
     })
+
+    for (var j = 0; j < books.length; j++){
+        console.log("Book # " + (j + 1) + "\nTitle: " + books[j].title + "\nAuthor: " + books[j].author.firstName + " " + books[j].author.lastName);
+    }
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -154,7 +170,31 @@ console.log(books);
      *   `showBookInfo` function.
      */
 
+    function createBook(title, author){
+        var counter = 0;
+        books.forEach(function(book, name){
+            if (title === book.title && author === book.author.firstName +" " + book.author.lastName){
+            counter +=1;
+            console.log("Book Info:");
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+            }
+            })
+    }
+    createBook("Fight Club", "Chuck Palahniuk");
+    createBook("The Brief Wondrous Life of Oscar Wao", "Junot Diaz");
 
+    function showBookInfo(input){
+        books.forEach(function(book){
+            if (input === book.title || input === book.author.firstName || input === book.author.lastName){
+                console.log("Book Info: ");
+                console.log("Title: " + book.title);
+                console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+            }
+        })
+    }
+
+    showBookInfo("Chuck");
 
 
 
