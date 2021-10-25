@@ -73,4 +73,36 @@
     }
     console.log(moveToEnd(names));
 
+    // morning exercise for 10/25/2021
+
+    var tangela = {
+        name: "tangela",
+        description: "Hidden beneath a tangle of vines that grows nonstop even if the vines are torn off, this Pokémon’s true appearance remains a mystery.",
+        height: {
+            feet: 3,
+            inches: 3
+        },
+        weight: {
+            pounds: 77,
+            ounces: 2
+        },
+        gender: "uni-sex",
+        category: "vine",
+        type:   "grass",
+        abilities: {
+            chlorophyll: "speed boost in sunlight",
+            leafGuard: "prevents status condition in harsh sunlight"
+        },
+        weakness: {
+            weakness1: "fire",
+            weakness2: "bug",
+            weakness3: "poison",
+            weakness4: "ice",
+            weakness5: "flying"
+        }
+    }
+
+
+
+
 })();
