@@ -102,6 +102,44 @@
         }
     }
 
+    // morning exercise for 10/26/2021
+    var wrestlers = [
+        {
+            name: "Bret Hart",
+            nationality: "Canadian"
+        }, {
+            name: "Shawn Michaels",
+            nationality: "American"
+        }, {
+            name: "Christian Cage",
+            nationality: "Canadian"
+        }, {
+            name: "Keiji Mutoh",
+            nationality: "Japanese"
+        }, {
+            name: "Eddy Guerrero",
+            nationality: "American"
+        }, {
+            name: "Owen Hart",
+            nationality: "Canadian"
+        }
+    ];
+
+    function onTheMat(arr){
+        var canWrestlers = [];
+        arr.forEach(function(wrestler){
+            if (wrestler.nationality === "Canadian"){
+                canWrestlers.push(wrestler);
+                //console.log("Not all things from Canada are bad, " + wrestler.name + " was " + wrestler.nationality + ".");
+            }
+        });
+        return canWrestlers;
+    }
+
+    console.log(onTheMat(wrestlers));
+
+
+
 
 
 
