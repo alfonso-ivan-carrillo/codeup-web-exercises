@@ -138,9 +138,17 @@
 
     console.log(onTheMat(wrestlers));
 
+    // exercise for 10/27/2021
 
+    var circle = {
+        radius: 36,
+    }
 
-
+    function getArea(radius){
+        var area = Math.round(Math.PI * Math.pow(radius,2));
+        return area;
+    }
+console.log(getArea(circle.radius));
 
 
 })();

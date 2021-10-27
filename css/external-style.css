@@ -1,0 +1,46 @@
+
+.fancy-header {
+    color: #e7340d;
+    text-decoration: underline;
+}
+
+h1#main-heading {
+    text-align: center;
+}
+
+body {
+    background-color: darkorange;
+    background-image: url("../img/Rick and Morty Zoom Background.jpeg");
+    background-size: contain;
+    font-family: AppleGothic, serif;
+}
+
+li {
+    list-style: lower-greek;
+}
+
+table {
+    background-color: red;
+    border-style: solid;
+    border-color: black;
+}
+th, td {
+    border-style: solid;
+    font-size: 40px;
+    padding: 20px;
+}
+
+a:link {
+    color: midnightblue;
+
+}
+a:hover {
+    color: hotpink;
+}
+a:visited{
+    color: orange;
+
+}
+a:active {
+    color: darkblue;
+}
