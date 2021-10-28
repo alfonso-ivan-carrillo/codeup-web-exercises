@@ -13,6 +13,7 @@ body {
     background-image: url("../img/Rick and Morty Zoom Background.jpeg");
     background-size: contain;
     font-family: AppleGothic, serif;
+    text-indent: 25em;
 }
 
 li {
