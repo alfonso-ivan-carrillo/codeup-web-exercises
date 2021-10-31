@@ -1,0 +1,63 @@
+.images {
+    text-align: center;  /* if image is in a <div>, you can use text-align to position images*/
+}
+
+.techimg {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    border: lightgray 1px solid;
+}
+
+h1, h2, img {
+    text-align: center;
+}
+.bulletPoints {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#welcomeStatement {
+    text-align: center;
+}
+
+.tableContainer {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #35298c;
+}
+tr, td,th {
+    border: 1px solid aquamarine;
+    background-color: cadetblue;
+    padding: 1em;
+}
+body {
+    background-color: #c3d4ff;
+    background-image: url("../img/pexels-pixabay-247676.jpeg");
+    background-size: contain;
+    color: white;
+    font-family: AppleGothic sans-serif;
+}
+hr {
+    border: 2px solid #35298c;
+}
+a:link {
+    color: red;
+    font-size: 20px;
+}
+
+a:hover {
+    color: greenyellow;
+}
+
+a:active {
+    color: aquamarine;
+}
+
+a:visited {
+    color: orange;
+}
