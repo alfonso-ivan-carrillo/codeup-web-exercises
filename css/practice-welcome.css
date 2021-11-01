@@ -1,3 +1,7 @@
+:root {
+    --bg-color: #0f6dd2;
+}
+
 .images {
     text-align: center;  /* if image is in a <div>, you can use text-align to position images*/
 }
@@ -6,7 +10,7 @@
     width: 400px;
     height: 300px;
     border-radius: 10px;
-    border: lightgray 1px solid;
+    border: var(--bg-color) 1px solid;
 }
 
 h1, h2, img {
@@ -28,11 +32,11 @@ h1, h2, img {
 table {
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid #35298c;
+    border: 2px solid var(--bg-color);
 }
 tr, td,th {
-    border: 1px solid aquamarine;
-    background-color: cadetblue;
+    border: 1px solid var(--bg-color);
+    background-color: var(--bg-color);
     padding: 1em;
 }
 body {
@@ -43,7 +47,7 @@ body {
     font-family: AppleGothic sans-serif;
 }
 hr {
-    border: 2px solid #35298c;
+    border: 2px solid var(--bg-color);
 }
 a:link {
     color: red;
