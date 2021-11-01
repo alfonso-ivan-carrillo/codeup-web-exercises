@@ -1,6 +1,6 @@
 "use strict";
 
-(function(){
+(function(True){
 
     // typeof operator will return the type that is being passed into
     console.log(typeof 55);  //returns NUMBER
@@ -175,6 +175,48 @@ console.log("Dead", "Pool");  // returns Dead Pool
 
 
 
+//Functions Drill List - Extra Exercises
+    function isOdd(number){
+        return number % 2 === 1;
+        // if(number % 2 === 1){   *above is the simplified of the if statement I wrote
+        //     return true;        *for a return of true or false, unless was going to
+        // } else {                *return a string or console.log, then would need if stmt
+        //     return false;
+        // }
+    }
+    console.log(isOdd(3));  // returns TRUE
+    console.log(isOdd(10)); // returns FALSE
+
+    function isEven(number){
+        return number % 2 === 0;
+    }
+    console.log(isEven(12));  // returns TRUE
+    console.log(isEven(9));   // returns FALSE
+
+    function identity(input){
+        return input;
+    }
+
+    var test1 = identity(5);
+    console.log(typeof test1);
+    var test = identity("You");
+    console.log(typeof test);
+    var test2 = identity(true);
+    console.log(typeof test2);
+
+
+//Array - Extra Exercises
+
+var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
+
+function allIndexesOf(array, item){
+    fruits.forEach(function(fruit, index){
+        if (item === fruit){
+        console.log([index]);
+        }
+    })
+}
+allIndexesOf(fruits, "apple");
 
 
 
