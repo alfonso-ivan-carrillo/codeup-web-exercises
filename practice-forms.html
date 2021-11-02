@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Forms</title>
+</head>
+<body>
+    <h1>Register With Us</h1>
+    <br>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text">
+        <br>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password">
+        <br>
+        <input type="submit">
+        <br>
+        <h2>Bio Summary</h2>
+        <textarea name="bio" id="bio" cols="30" rows="10" placeholder="Please enter a brief bio summary"></textarea>
+        <hr>
+        <h2>How did you hear about us?</h2>
+        <input type="radio" name="hear about us1" value="billboard">Billboard<br>
+        <input type="radio" name="hear about us2" value="radio">Radio<br>
+        <input type="radio" name="hear about us3" value="internet">Internet<br>
+        <input type="radio" name="hear about us4" value="other">Other<br>
+        <br>
+        <h2>What web browser do you use?</h2>
+        <select name="webbrowser" id="webbrowser">
+            <option value="chrome">Chrome</option>
+            <option value="firefox">Firefox</option>
+            <option value="safari">Safari</option>
+            <option value="duckduckgo">Duck Duck Go</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit">Submit This Form</button>
+
+    </form>
+
+
+</body>
+</html>
