@@ -1,47 +1,67 @@
-
-.fancy-header {
-    color: #e7340d;
-    text-decoration: underline;
+:root {
+    --bg-color: #0f6dd2;
 }
 
-h1#main-heading {
+.images {
+    text-align: center;  /* if image is in a <div>, you can use text-align to position images*/
+}
+
+.techimg {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    border: var(--bg-color) 1px solid;
+}
+
+h1, h2, img {
+    text-align: center;
+}
+.bulletPoints {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#welcomeStatement {
     text-align: center;
 }
 
-body {
-    background-color: darkorange;
-    background-image: url("../img/Rick and Morty Zoom Background.jpeg");
-    background-size: contain;
-    font-family: AppleGothic, serif;
-    text-indent: 25em;
-}
-
-li {
-    list-style: lower-greek;
+.tableContainer {
+    text-align: center;
 }
 
 table {
-    background-color: red;
-    border-style: solid;
-    border-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid var(--bg-color);
 }
-th, td {
-    border-style: solid;
-    font-size: 40px;
-    padding: 20px;
+tr, td,th {
+    border: 1px solid var(--bg-color);
+    background-color: var(--bg-color);
+    padding: 1em;
 }
-
+body {
+    background-color: #c3d4ff;
+    background-image: url("../img/pexels-pixabay-247676.jpeg");
+    background-size: contain;
+    color: white;
+    font-family: AppleGothic sans-serif;
+}
+hr {
+    border: 2px solid var(--bg-color);
+}
 a:link {
-    color: midnightblue;
-
+    color: red;
+    font-size: 20px;
 }
+
 a:hover {
-    color: hotpink;
+    color: greenyellow;
 }
-a:visited{
-    color: orange;
 
-}
 a:active {
-    color: darkblue;
+    color: aquamarine;
+}
+
+a:visited {
+    color: orange;
 }
