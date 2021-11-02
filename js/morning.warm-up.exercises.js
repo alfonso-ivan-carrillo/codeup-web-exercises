@@ -151,4 +151,41 @@
 console.log(getArea(circle.radius));
 
 
+    var groceries = [
+        {
+            name: "carrots",
+            quantity: 5
+        },{
+            name: "yams",
+            quantity: 50
+        },{
+            name: "oranges",
+            quantity: 9
+        },{
+            name: "onions",
+            quantity: 2
+        },{
+            name: "cucumbers",
+            quantity: 6
+        },{
+            name: "potatoes",
+            quantity: 8
+        }
+    ];
+
+    function highestAmount(list){   //creating empty array in order to store
+        var high = {                //object, then compare it to other objects
+            name: "something",      //in array and then return the highest
+            quantity: 0
+        };
+        list.forEach(function(amount){
+            if(amount.quantity > high.quantity){
+                high = amount;
+            }
+        })
+        return high;
+    }
+    console.log(highestAmount(groceries));
+
+
 })();
