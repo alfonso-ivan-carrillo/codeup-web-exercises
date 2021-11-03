@@ -150,5 +150,39 @@
     }
 console.log(getArea(circle.radius));
 
+    // exercise for 11/03/2021
+
+    var products = [
+        {
+            name: 'Playstation 5',
+            price: 599.99
+        }, {
+            name: 'Logitech Wireless Mouse',
+            price: 23.99
+        }, {
+            name: 'Macbook Pro',
+            price: 1099.99
+        }, {
+            name: 'GoPro HERO10',
+            price: 399.99
+        }, {
+            name: '12" & 6" Metal Ruler Set',
+            price: 5.99
+        }]
+
+    function sortByName(arr, element){
+       var name1 = arr.name.toLowerCase();      // the sort() method sorts the its elements
+       var name2 = element.name.toLowerCase();  // according to the values returned by the
+       if (name1 > name2){                      // function. the property names are changed
+           return 1;                            // to lower case for comparison, if comparing
+       } else if (name1 < name2){               // the names results in a 1, the order is changed,
+           return -1;                           // if the comparison results in a -1 or 0, the
+       } else {                                 // order remains the same
+           return 0;
+       }
+    }
+
+    console.log(products.sort(sortByName));
+
 
 })();
