@@ -4,7 +4,10 @@
     color: slategrey;
     position: absolute;
     width: 100%;
+    height: 125px;
     top: 180px;
+    font-size: 100px;
+
 }
 .jumbotron>div {
     padding: 0;
