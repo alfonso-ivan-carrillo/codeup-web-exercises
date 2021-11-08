@@ -217,6 +217,43 @@ function allIndexesOf(array, item){
     })
 }
 allIndexesOf(fruits, "apple");
+allIndexesOf(fruits, "guava");
+allIndexesOf(fruits, "pineapple");
+
+
+
+var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+
+console.log(bugs.length);
+console.log([].length);
+console.log([1,2,3] [0]);
+
+var randomIndex = Math.floor(Math.random() * bugs.length);
+console.log(bugs[randomIndex]);
+
+for (var x = 0; x < bugs.length; x++){
+    console.log(bugs[x]);
+}
+function removeAll(arr, input){
+    var notBug = [];
+    arr.forEach(function(item){
+        if (input === item){
+            notBug = item;
+            return notBug;
+        } else {
+            return "not found";
+        }
+    })
+}
+
+console.log(removeAll(bugs, "typo"));
+
+
+
+
+
+
+
 
 
 
