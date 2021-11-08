@@ -1,0 +1,17 @@
+.jumbotron h1 {
+    background-color: rgba(255,255,255,0.5);
+    text-align: center;
+    color: slategrey;
+    position: absolute;
+    width: 100%;
+    height: 125px;
+    top: 180px;
+    font-size: 100px;
+
+}
+.jumbotron>div {
+    padding: 0;
+}
+.jumbotron-fluid {
+    padding: 0;
+}
