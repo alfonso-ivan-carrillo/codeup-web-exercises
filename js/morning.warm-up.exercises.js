@@ -222,4 +222,53 @@ console.log(getArea(circle.radius));
     console.log(highestAmount(groceries));
 
 
+    // Write a function in JavaScript that takes in an array of objects and returns the object with the lowest height property. Consider the following array to test your code.
+    var bBallPlayers = [
+        {
+            name: "Hakeem Olajuwon",
+            height: 213
+        }, {
+            name: "Muggsy Bogues",
+            height: 160
+        }, {
+            name: "Chris Paul",
+            height: 183
+        }, {
+            name: "Bol Bol",
+            height: 218
+        }, {
+            name: "Moochie Norris",
+            height: 185
+        }, {
+            name: "Manu Ginobili",
+            height: 198
+        }
+    ];
+
+    function lowestHeight(arr){
+        var shorty = {              // when attempting to compare an object value, create a object to store values in for
+            name: "something",      // comparison, in this case, looking for lowest height, created an object with a value
+            height: 300             // with an extremely high value in order to be higher than highest value in array,
+        }                           //
+        arr.forEach(function(amount){
+            if (amount.height < shorty.height){
+                shorty = amount;
+            }
+        })
+        return shorty;
+    }
+    console.log(lowestHeight(bBallPlayers));
+
+    // // instructor solutions
+    // function findShortest(arr){
+    //     var holdThis = {height: Number.MAX_VALUE};  // Number.MAX_VALUE gives you the heights number possible
+    //     arr.forEach(function(el){
+    //         if (el.height < holdThis.height){
+    //             holdThis = el;
+    //         }
+    //     })
+    //     return holdThis;
+    // }
+
+
 })();

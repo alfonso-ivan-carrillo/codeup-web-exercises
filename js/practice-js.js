@@ -235,18 +235,19 @@ for (var x = 0; x < bugs.length; x++){
     console.log(bugs[x]);
 }
 function removeAll(arr, input){
-    var notBug = [];
+    var newArr= [];
     arr.forEach(function(item){
         if (input === item){
-            notBug = item;
-            return notBug;
-        } else {
-            return "not found";
+            newArr = arr.slice(input);
+            return newArr;
         }
     })
+
+
 }
 
 console.log(removeAll(bugs, "typo"));
+
 
 
 
