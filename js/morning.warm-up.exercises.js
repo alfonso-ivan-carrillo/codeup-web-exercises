@@ -271,5 +271,40 @@ console.log(getArea(circle.radius));
     // }
     // console.log(findShortest(dBallPlayers);
 
+    // 11-10-2021 Exercise
+    var myCharacter = {
+        name: 'rick',
+        hitPoints: 100,
+        class: 'science',
+        abilities: {
+            attack: function(obj) {
+                obj.hitPoints -= myCharacter.weapon.damage;
+                console.log(obj.hitPoints);
+            },
+        },
+        magicPoints: 0,
+        weapon: {
+            name: 'Silver Sabre',
+            damage: 16,
+            type: 'sword'
+        }
+    }
+
+    var enemy = {
+        name: 'Savage Orc',
+        hitPoints: 100,
+        class: 'Warrior',
+        magicPoints: 0,
+    }
+
+    myCharacter.abilities.attack(enemy);
+
+    //instructor solutions
+    // attack: function(obj) {
+    //  console.log(myCharacter.name + " hit " + obj.name + " for " + myCharacter.weapon.damage + " damage!");
+    // obj.hitPoints -= myCharacter.weapon.damage;
+    // console.log(obj.name + " has " + obj.hitPoints + " hit points left!");
+    //
+    // myCharacter.abilities.attack(enemy);
 
 })();
