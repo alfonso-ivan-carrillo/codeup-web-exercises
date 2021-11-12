@@ -307,4 +307,13 @@ console.log(getArea(circle.radius));
     //
     // myCharacter.abilities.attack(enemy);
 
+    // 11/12/2021 exercise
+
+    function game(arr){
+        return [Math.floor(Math.random() * arr.length)];
+    }
+
+    console.log(game(["rock", "paper", "scissors"]));
+
+
 })();
