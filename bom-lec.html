@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM Lecture</title>
+</head>
+<body>
+    <h1>BOM Lecture</h1>
+
+<script>
+    // setTimeout(function(){
+    //     alert("Hello!");
+    // }, 3000);
+    //
+    // setTimeout(function(){
+    //     var email = prompt("Give us your email for Crazy discounts and more!"); // <--action to take
+    //     alert(email);                                                           // <--time to execute action (a delay)
+    // }, 5000);
+    //
+
+    // setInterval(function(){
+    //     alert("Will you take us to Mt. Splashmore?");   // <-- action to take
+    // }, 4000);                                           // <-- timer, how often it will be executed, hence interval
+    //
+
+
+    // var intervalID = setInterval(function(){
+    //     console.log(intervalID);
+    //     var canGoToSplashmore = confirm("Will you take us to Mt. Splashmore?");
+    //     if (canGoToSplashmore){
+    //         clearInterval(intervalID);          // <-- acts like a break statement
+    //     }
+    // }, 4000);
+
+
+    // var intervalID = window.setInterval(function(){
+    //     console.log(intervalID);
+    //     var stillThere = confirm("Alert! You've been idle for to long, please click to continue banking.");
+    //     if (!stillThere) {
+    //         clearInterval(intervalID);
+    //         window.open("https://frostbank.com", "_newtab");
+    //     }else {                                         // <-- acts like a break statement
+    //         pokes++;
+    //         if (pokes ===5 ) {
+    //             clearInterval(intervalID);
+    //             window.location = "https://frostbank.com/";
+    //         }
+    //         // The location object is aware of the currently loaded document and provides detailed url information. The location
+    //         // object can also be used to redirect the browser to a new location.
+    //         //window.open("https:/frostbank.com", "_newtab"); to open new window on a new tab
+    //     }
+    // }, 5000);
+
+    if (confirm("Take me home tonight?")){
+        alert("I don't want to let you go til you see the light.");
+    } else {
+        window.location.reload();
+    }
+
+
+
+
+
+</script>
+
+</body>
+</html>

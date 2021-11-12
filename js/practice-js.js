@@ -208,45 +208,39 @@ console.log("Dead", "Pool");  // returns Dead Pool
 //Array - Extra Exercises
 
 var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
+console.log(fruits[2]);
+console.log(fruits.indexOf("apple"));
+console.log(fruits.lastIndexOf("apple"));
 
-function allIndexesOf(array, item){
-    fruits.forEach(function(fruit, index){
-        if (item === fruit){
-        console.log([index]);
-        }
-    })
-}
-allIndexesOf(fruits, "apple");
-allIndexesOf(fruits, "guava");
-allIndexesOf(fruits, "pineapple");
+// function allIndexesOf (arr, element){
+//     var indexResults = [];
+//     for (var i = 0; i < arr.length; i++){
+//         if (arr[i] === element){
+//              indexResults.push((arr.indexOf(element)));
+//         }
+//     }
+//     return indexResults;
+// }
 
-
-
-var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
-
-console.log(bugs.length);
-console.log([].length);
-console.log([1,2,3] [0]);
-
-var randomIndex = Math.floor(Math.random() * bugs.length);
-console.log(bugs[randomIndex]);
-
-for (var x = 0; x < bugs.length; x++){
-    console.log(bugs[x]);
-}
-function removeAll(arr, input){
-    var newArr= [];
-    arr.forEach(function(item){
-        if (input === item){
-            newArr = arr.slice(input);
-            return newArr;
-        }
-    })
+    function allIndexesOf (arr, element){
+        var indexResults = [];
+        arr.forEach(function(item){
+            if(element === item){
+                indexResults.push(arr.indexOf(item));
+            }
+        })
+        return indexResults;
+    }
 
 
-}
+    console.log(allIndexesOf(fruits, "orange"));
+    console.log(allIndexesOf(fruits, "pineapple"));
+    console.log(allIndexesOf(fruits, "apple"));
+    console.log(allIndexesOf(fruits, "guava"));
 
-console.log(removeAll(bugs, "typo"));
+    var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+
+
 
 
 
