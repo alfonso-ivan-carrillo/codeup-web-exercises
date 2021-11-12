@@ -28,10 +28,12 @@
         detonationTimer--;
     }, 1000);
 
+    // instructor solution var bombInterval = setInterval(updateTimer, 1000);
+
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-        clearInterval(bomb);
+        clearInterval(bomb);    // same for instructor solution but used bombInterval
         alert("You did it!");
     }
 

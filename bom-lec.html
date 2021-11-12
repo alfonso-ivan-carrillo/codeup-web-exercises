@@ -7,7 +7,7 @@
 <body>
     <h1>BOM Lecture</h1>
 
-<script>
+<!--<script>-->
     // setTimeout(function(){
     //     alert("Hello!");
     // }, 3000);
@@ -50,18 +50,65 @@
     //         //window.open("https:/frostbank.com", "_newtab"); to open new window on a new tab
     //     }
     // }, 5000);
+    //
+    // if (confirm("Take me home tonight?")){
+    //     alert("I don't want to let you go til you see the light.");
+    // } else {
+    //     window.location.reload();
+    // }
+//
+//
+//
+//
+//
+<!--</script>-->
 
-    if (confirm("Take me home tonight?")){
-        alert("I don't want to let you go til you see the light.");
-    } else {
-        window.location.reload();
-    }
+    <h1>List One</h1>
+    <ul>
+        <li class="odd list-one-item">List 1, Item 1</li>
+        <li class="even list-one-item">List 1, Item 2</li>
+    </ul>
+    <h1>List Two</h1>
+    <ul>
+        <li class="odd list-two-item">List 2, Item 1</li>
+        <li class="even list-two-item">List 2, Item 2</li>
+    </ul>
 
+    <script>
+        "use strict";
+        (function() {
+            // Get all elements with class 'even'
+            var evenElements = document.getElementsByClassName('even');
 
+            // Print the first element
+            console.log(evenElements[0]); // Prints li.even.list-one-item
 
+            // Print all elements
+            for (var i = 0; i < evenElements.length; i++) {
+                console.log(evenElements[i]);
+            }
 
+            // Prints:
+            // li.even.list-one-item
+            // li.even.list-two-item
 
-</script>
+            var listItems = document.getElementsByTagName('li');
+
+            // Print the first list item
+            console.log(listItems[0]); // Prints li.odd.list-one-item
+
+            // Print all the list items
+            for (var i = 0; i < listItems.length; i++) {
+                console.log(listItems[i]);
+            }
+
+            // Prints
+            // li.odd.list-one-item
+            // li.even.list-one-item
+            // li.odd.list-two-item
+            // li.even.list-two-item
+        })();
+    </script>
 
 </body>
 </html>
