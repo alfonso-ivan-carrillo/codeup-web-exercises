@@ -306,6 +306,11 @@ function removeAll(arr, item) {
         make: "ford",
         model: "F-150"
     }];
+
+    cars.gene = "Metal";
+    console.log (cars);
+    cars.gene = "f150"
+
     function makeCar(make, model){
            var car  = [{
             make:  make,
@@ -320,6 +325,14 @@ function removeAll(arr, item) {
     console.log(makeCar("bmw", "321"));
     console.log(cars);
 
+
+
+var i = 0;
+
+while (i <= 10){
+    console.log(i);
+    i++
+}
 
 
 
