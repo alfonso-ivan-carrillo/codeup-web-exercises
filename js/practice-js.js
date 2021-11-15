@@ -212,6 +212,30 @@ console.log(fruits[2]);
 console.log(fruits.indexOf("apple"));
 console.log(fruits.lastIndexOf("apple"));
 
+// var sortedArray = [];
+// var element = "apple";
+// var letterHolder = fruits.indexOf(element);
+//
+//
+// while (letterHolder != -1){
+//     sortedArray.push(letterHolder);
+//     letterHolder = fruits.indexOf(element, letterHolder + 1);
+// }
+// console.log(sortedArray);
+
+function allIndexesOf(arr, input){
+    var sortedArray = [];
+    var element = input;
+    var letterHolder = arr.indexOf(element);
+    // console.log(letterHolder);
+    while (letterHolder != -1){
+        sortedArray.push(letterHolder);
+        letterHolder = arr.indexOf(element, letterHolder + 1);
+    }
+    return sortedArray;
+}
+
+
 // function allIndexesOf (arr, element){
 //     var indexResults = [];
 //     for (var i = 0; i < arr.length; i++){
@@ -222,29 +246,79 @@ console.log(fruits.lastIndexOf("apple"));
 //     return indexResults;
 // }
 
-    function allIndexesOf (arr, element){
-        var indexResults = [];
-        arr.forEach(function(item){
-            if(element === item){
-                indexResults.push(arr.indexOf(item));
-            }
-        })
-        return indexResults;
-    }
+    // function allIndexesOf (arr, element){
+    //     var indexResults = [];
+    //     arr.forEach(function(item){
+    //         if(element === item){
+    //             indexResults.push(arr.indexOf(item));
+    //             console.log(indexResults);
+    //         }
+    //     })
+    //     return indexResults;
+    // }
 
-
-    console.log(allIndexesOf(fruits, "orange"));
-    console.log(allIndexesOf(fruits, "pineapple"));
     console.log(allIndexesOf(fruits, "apple"));
     console.log(allIndexesOf(fruits, "guava"));
+    console.log(allIndexesOf(fruits, "pineapple"));
+
 
     var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+    console.log(bugs);
+
+function removeAll(arr, item) {
+    for (var i = arr.length; i--;) {
+        console.log(bugs);
+        if (arr[i] === item) {
+            arr.splice(i, 1);
+        }
+    }
+    return arr;
+}
 
 
+     console.log(removeAll(bugs, "ant"));
 
+//Make a function called randomIntBetween(min, max) that returns a random number between the min and the max.
+    function randomInBetween (min, max){
+        var rand = Math.random();
+        console.log(rand);
+        return rand * (max - min) + min;
+    }
 
+    console.log(randomInBetween(10, 15));
 
+    //Make a function called coinFlip() that returns either 0 or 1, randomly
 
+    function coinFlip(){
+        var input = Math.random();
+        if (input >= .5){
+            return Math.ceil(input);
+        } else {
+            return Math.floor(input);
+        }
+    }
+
+    console.log(coinFlip());
+
+// Exercise 1. Write a function called makeCar that takes in two strings, make and model, and returns an object with those properties
+// Example: makeCar("VW", "beetle") returns the object {"make": "VW", "model", "beetle"}
+    var cars = [{
+        make: "ford",
+        model: "F-150"
+    }];
+    function makeCar(make, model){
+           var car  = [{
+            make:  make,
+            model: model
+        }];
+        cars.push(car);
+        return cars;
+}
+
+    console.log(makeCar("toyota", "tacoma"));
+    console.log(makeCar("chevy", "blazer"));
+    console.log(makeCar("bmw", "321"));
+    console.log(cars);
 
 
 
