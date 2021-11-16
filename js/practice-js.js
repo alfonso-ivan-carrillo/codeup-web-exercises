@@ -302,42 +302,108 @@ function removeAll(arr, item) {
 
 // Exercise 1. Write a function called makeCar that takes in two strings, make and model, and returns an object with those properties
 // Example: makeCar("VW", "beetle") returns the object {"make": "VW", "model", "beetle"}
-    var cars = [{
-        make: "ford",
-        model: "F-150"
-    }];
+//     var cars = [{
+//         make: "ford",
+//         model: "F-150"
+//     }];
+//
+//     cars.gene = "Metal";
+//     console.log (cars);
+//     cars.gene = "f150"
+//
+//     function makeCar(make, model){
+//            var car  = [{
+//             make:  make,
+//             model: model
+//         }];
+//         cars.push(car);
+//         return cars;
+// }
+//
+//     console.log(makeCar("toyota", "tacoma"));
+//     console.log(makeCar("chevy", "blazer"));
+//     console.log(makeCar("bmw", "321"));
+//     console.log(cars);
+//
 
-    cars.gene = "Metal";
-    console.log (cars);
-    cars.gene = "f150"
+//objects-extra work-problem 2
 
-    function makeCar(make, model){
-           var car  = [{
-            make:  make,
-            model: model
-        }];
-        cars.push(car);
-        return cars;
-}
+    // var salesReport = [{
+    //     title: "Monthly Sales Report",
+    //     date: "03/17/2015",
+    //     office: "Codeup",
+    //     employees: {
+    //         employeeNumber: "1",
+    //         firstName: "jane",
+    //         lastName: "janeway",
+    //         salesUnits: "3"
+    //     }
+    // }];
+    // console.log(salesReport);
+    //
+    // var tricia = [{
+    //         employeeNumber: "3",
+    //             firstName: "tricia",
+    //             lastName: "triciason",
+    //             salesUnits: "5"
+    //     }];
+    // salesReport.push(tricia);
+    // console.log(salesReport);
+    //
+    //
+    // var myDog = {
+    //     name: 'Kali',
+    //     breed: 'Australian Cattle Dog mix',
+    // };
+    //
+    // console.log(myDog.name);
+    //
+    //
+    //
+    // var dogs = [myDog];
+    // var peridot = {
+    //     name: "Peridot",
+    //     breed: "Pit Bull Terrier Mix",
+    //     birthday: "08/30/2017",
+    //     sit: function (hasTreat) {
+    //         if (hasTreat === true) {
+    //             return "Peridot is now sitting";
+    //         } else {
+    //             return "Peridot is now ignoring you";
+    //         }
+    //     }
+    // }
+    // dogs.push(peridot);
+    // console.log(dogs);
+    // console.log(dogs[0].breed)
+    //
+    // var numberOfAustralianCattleDogMixes = 0;
+    // dogs.forEach(function (dog) {
+    //     if (dog.breed === 'Australian Cattle Dog mix') {
+    //         numberOfAustralianCattleDogMixes += 1;
+    //     }
+    // })
+    // console.log(numberOfAustralianCattleDogMixes)
+    //
+    // myDog.owner = {
+    //     name: 'Jay',
+    //     address: '600 Navarro St. San Antonio, TX'
+    // }
+    //
+    // console.log(myDog);
 
-    console.log(makeCar("toyota", "tacoma"));
-    console.log(makeCar("chevy", "blazer"));
-    console.log(makeCar("bmw", "321"));
+
+    var car = {};
+    car.make = "toyota";
+    console.log(car);
+
+    car["model"] = "camry";
+    console.log(car);
+    var cars = [car];
     console.log(cars);
-
-
-
-var i = 0;
-
-while (i <= 10){
-    console.log(i);
-    i++
-}
-
-
-
-
-
+    var car1 = {};
+    cars.push(car1);
+    console.log(cars);
 
 
 })();
