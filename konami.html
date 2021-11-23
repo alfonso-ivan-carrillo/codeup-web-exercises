@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        #prime, #thumpsUp {
+            display: none;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Konami Code</h1>
+    <header>
+        <div>
+            <h1>Transformers</h1>
+        </div>
+    </header>
+    <main id="main-content">
+        <div id="symbol">
+            <img src="img/Transformers%20GIF%20-%20Find%20&%20Share%20on%20GIPHY.gif" alt="symbol">
+        </div>
+        <div id="prime">
+            <img src="img/Transformers_%20Earth%20Wars_%20Transformations,%20Space%20Ape%20Games.gif" alt="prime">
+        </div>
+        <div id="thumpsUp">
+            <h1 id="message">You got 30 Lives!</h1>
+            <img src="img/optimus%20prime%20gif%20_%20Tumblr.gif" alt="thumpsUp">
+        </div>
+    </main>
+
+
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+
+        $(document).ready(function(){
+        "use strict"
+
+        var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        var lastKeyTime = Date.now();
+        var symbol = $('#symbol');
+        var prime = $('#prime');
+        var thumpsUp = $('#thumpsUp');
+
+
+        // var input = [];
+        // $(document).keyup(function(event){
+        //     // console.log(event.keyCode);
+        //     input.push(event.keyCode);
+        //
+        //     if(konamiCode.indexOf(input) === -1){
+        //             symbol.css("display", "none");
+        //         }
+        //     var currentTime = Date.now();
+        //     if (currentTime - lastKeyTime > 2000){
+        //         input = [];
+        //     }
+        //     console.log(currentTime);
+        //     console.log(input);
+        //     lastKeyTime = currentTime;
+        // });
+
+
+        var keySequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        var userInput = new Array(keySequence.length);
+        var sfxAudio = new Audio('img/Transforming_sound.mp3');
+
+
+
+        document.addEventListener('keydown', ({ keyCode }) =>{ userInput = [ ...userInput.slice(1), keyCode];
+        if ( keySequence.every( (v, k) => v === userInput[k])){
+            symbol.css("display", "none");
+            prime.css("display", "inline-block");
+            sfxAudio.play();
+            var thumpsUpTimer = setTimeout(function(){
+                prime.css("display", "none");
+                thumpsUp.css('display', "inline-block");
+            }, 3000);
+
+        }
+        });
+
+
+        })
+
+
+
+    </script>
+</body>
+</html>
