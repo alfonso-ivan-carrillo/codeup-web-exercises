@@ -20,7 +20,7 @@ $('#pjHeader').click(function(){
     $(this).css('background-color', 'blue');
 });
 
-$('p').dblclick(function(){
+$('p').dblclick(function(e){
     $(this).css('font-size', '18px');
 });
 

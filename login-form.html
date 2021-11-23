@@ -17,9 +17,62 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" id="password" name="password" class="form-control">
             </div>
-            <button class="btn btn-block">Login</button>
+            <small id="loginFail">Sorry, your username or password is incorrect.</small>
+            <button id="buttonSubmit" class="btn btn-block">Login</button>
         </fieldset>
     </form>
 </main>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function(){
+        //variables
+        var username = 'regulus2021';
+        var password = 'gocodeup';
+
+        //jquery acquiring elements
+        var userName = $('#username');
+        var passWord = $('#password');
+        var loginFail = $('#loginFail');
+        var submitButton = $('#buttonSubmit');
+
+        //styling
+        loginFail.css({
+            color: "red",
+            display: "none"
+        });
+
+        //form logic
+        submitButton.click(function(e){
+            e.preventDefault();
+            if(username === userName.val() && password === passWord.val()){
+
+                return "login Successful!";
+            } else {
+                loginFail.css({
+                    display: "inline-block"
+                })
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });
+</script>
+
+
+
 </body>
 </html>
