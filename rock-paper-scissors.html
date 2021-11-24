@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Game</title>
+    <style>
+        main, header {
+            text-align: center;
+        }
+        #player, #cpu {
+            display: inline-block;
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+<body>
+  <header>
+    <h1>Rock Paper Scissors DeathMatch!</h1>
+
+  </header>
+  <main>
+      <iframe src='https://gfycat.com/ifr/WhichDisastrousAmurratsnake' frameborder='0' scrolling='no' allowfullscreen width='640' height='524'></iframe><p> <a href="https://gfycat.com/whichdisastrousamurratsnake"></a></p>
+
+      <div>
+          <button id="rockButton" type="button" value="0" >Rock</button>
+          <button id="paperButton" type="button" value="1">Paper</button>
+          <button id="scissorsButton" type="button" value="2">Scissors</button>
+      </div>
+      <div id="player">
+          Player
+
+
+      </div>
+      <div id="cpu">
+          CPU
+      </div>
+
+  </main>
+  <section>
+      Table
+  </section>
+  <footer>
+
+  </footer>
+  <script src="js/jquery-2.2.4.js"></script>
+  <script>
+      $(document).ready(function(){
+          "use strict"
+
+          // variables
+          var rockNumber = 0;
+          var paperNumber = 1;
+          var scissorsNumber = 2;
+          var cpuNumber = getRandomInt();
+
+          // Audio
+          var loser = new Audio('img/Begforyourlives.mp3');
+
+          // Images
+          var bloodyPaper = new Image('img/paperwins.png');
+
+          //manipulated elements
+          var rockbtn = $("#rockButton");
+          var paperbtn = $("#paperButton");
+          var scissorsbtn = $("#scissorsButton");
+
+
+          //random number generator from 0 to 3
+          function getRandomInt(){
+              return Math.floor(Math.random() * 3);
+          }
+
+          // battle logic
+          rockbtn.click(function(e){
+              e.preventDefault();
+              cpuNumber = getRandomInt();
+              console.log(cpuNumber);
+              console.log(rockbtn.val());
+
+              if(rockNumber === cpuNumber){
+                  console.log("tie - rock vs rock");
+              } else if (cpuNumber === 1) {
+                  console.log("you lose -- paper beats rock");
+                  loser.play();
+              } else if (cpuNumber === 2){
+                  console.log("you win -- rock beats scissor");
+              } else {
+                  console.log("error");
+              }
+          });
+
+          paperbtn.click(function(e){
+              e.preventDefault();
+              cpuNumber = getRandomInt();
+              console.log(cpuNumber);
+              console.log(paperbtn.val());
+              if(paperNumber === cpuNumber){
+                  console.log("tie -- paper vs paper");
+              } else if (cpuNumber === 2) {
+                  console.log("you lose -- scissor beats paper");
+                  loser.play();
+              } else if (cpuNumber === 0){
+                  console.log("you win -- paper beats rock");
+              } else {
+                  console.log("error");
+              }
+          })
+
+          scissorsbtn.click(function(e){
+              e.preventDefault();
+              cpuNumber = getRandomInt();
+              console.log(cpuNumber);
+              console.log(scissorsbtn.val());
+              if(scissorsNumber === cpuNumber){
+                  console.log("tie -- scissors vs scissors");
+              } else if (cpuNumber === 0) {
+                  console.log("you lose -- rock beats scissors ");
+                  loser.play();
+              } else if (cpuNumber === 1){
+                  console.log("you win -- scissors beats paper");
+              } else {
+                  console.log("error");
+              }
+          })
+
+
+      })
+  </script>
+</body>
+</html>
