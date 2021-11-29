@@ -7,9 +7,9 @@
         main, header {
             text-align: center;
         }
-        #player, #cpu {
-            display: inline-block;
-            border: 1px solid red;
+        header {
+            background-color: #35298c;
+            color: white;
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -27,32 +27,44 @@
           <button id="paperButton" type="button" value="1">Paper</button>
           <button id="scissorsButton" type="button" value="2">Scissors</button>
       </div>
-      <div id="player">
-          Player
-
-
+      <div class="container d-flex">
+          <div class="row">
+              <div class="row col-5 align-items-center">
+                  <div id="player" class="col-11 m-5">
+                      <img id="playerOne" src="img/playerOne.svg" class="col-12 p-1" alt="bloody-paper">
+                  </div>
+              </div>
+              <div class="row col-2 align-items-center">
+                  <div id="vsDiv" class="m-5">
+                      <img id="vs" src="img/versus.png" class="col-12" alt="vs">
+                  </div>
+              </div>
+              <div class="row col-5">
+                  <div class="col-11 m-5">
+                      <img id="cpu" src="img/cpuPlayer.svg" class="col-12 p-1" alt="bloody-paper">
+                  </div>
+              </div>
+          </div>
       </div>
-      <div id="cpu">
-          CPU
-      </div>
-
   </main>
-  <section>
-      <div>
-          <table class="table table-sm ">
-              <thead>
-                <tr>
-                  <th>Player</th>
-                  <th>CPU</th>
-                  <th>Win</th>
-                </tr>
-              </thead>
-              <tbody>
+<!--  table area-->
+<!--  <section>-->
+<!--      <div>-->
+<!--          <table class="table table-sm ">-->
+<!--              <thead>-->
+<!--                <tr>-->
+<!--                 <th>Games</th>-->
+<!--                 <th>Player</th>-->
+<!--                 <th>CPU</th>-->
+<!--                 <th>Win</th>-->
+<!--                </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
 
-              </tbody>
-          </table>
-      </div>
-  </section>
+<!--              </tbody>-->
+<!--          </table>-->
+<!--      </div>-->
+<!--  </section>-->
   <footer>
 
   </footer>
@@ -75,12 +87,15 @@
           var alright = new Audio("img/Alright-then.mp3");
 
           // Images
-          var bloodyPaper = new Image('img/paperwins.png');
+
+          var playerOne = $('#playerOne');
+          var cpu = $("#cpu");
 
           //manipulated elements
           var rockbtn = $("#rockButton");
           var paperbtn = $("#paperButton");
           var scissorsbtn = $("#scissorsButton");
+          var vs = $("#vs");
 
 
           //random number generator from 0 to 3
@@ -88,64 +103,227 @@
               return Math.floor(Math.random() * 3);
           }
 
+
+          //timer
+          function fun(){
+              location.reload();
+          }
+
+
+
           // battle logic
           rockbtn.click(function(e){
               e.preventDefault();
               cpuNumber = getRandomInt();
-              console.log(cpuNumber);
-              console.log(rockbtn.val());
-
-              if(rockNumber === cpuNumber){
-                  console.log("tie - rock vs rock");
-                  alright.play();
-              } else if (cpuNumber === 1) {
-                  console.log("you lose -- paper beats rock");
-                  loser.play();
+              playerOne.css('content', 'url(img/rockLeft.png)');
+              if (cpuNumber === rockNumber){
+                  cpu.css('content', 'url(img/rockRight.png)');
+              } else if (cpuNumber === 1){
+                  cpu.css('content', 'url(img/paperRight.png)');
               } else if (cpuNumber === 2){
-                  console.log("you win -- rock beats scissor");
-                  wreckedSon.play();
-              } else {
-                  console.log("error");
+                  cpu.css('content', 'url(img/scissorsRight.png)');
               }
-          });
+              console.log(rockNumber);
+              console.log(cpuNumber);
+              setTimeout(rockButton, 3000, rockNumber, cpuNumber);
+          })
 
           paperbtn.click(function(e){
               e.preventDefault();
               cpuNumber = getRandomInt();
+              playerOne.css('content', 'url(img/paperLeft.png)');
+              if (cpuNumber === paperNumber){
+                  cpu.css('content', 'url(img/paperRight.png)');
+              } else if (cpuNumber === 0){
+                  cpu.css('content', 'url(img/rockRight.png)');
+              } else if (cpuNumber === 2){
+                  cpu.css('content', 'url(img/scissorsRight.png)');
+              }
+              console.log(paperNumber);
               console.log(cpuNumber);
-              console.log(paperbtn.val());
+              setTimeout(paperButton, 3000, paperNumber, cpuNumber);
+          });
+
+          scissorsbtn.click(function(e) {
+              e.preventDefault();
+              cpuNumber = getRandomInt();
+              playerOne.css('content', 'url(img/scissorsLeft.png)');
+              if (cpuNumber === scissorsNumber){
+                  cpu.css('content', 'url(img/scissorsRight.png)');
+              } else if (cpuNumber === 0){
+                  cpu.css('content', 'url(img/rockRight.png)');
+              } else if (cpuNumber === 1){
+                  cpu.css('content', 'url(img/paperRight.png)');
+              }
+              console.log(cpuNumber);
+              console.log(scissorsbtn.val());
+              setTimeout(scissorsButton, 3000, scissorsNumber, cpuNumber);
+          });
+
+          function rockButton(rockNumber, cpuNumber){
+                  if (rockNumber === cpuNumber){
+                      console.log("tie - rock vs rock");
+                      playerOne.css('content', 'url(img/theRock.png)');
+                      cpu.css('content', 'url(img/theRock.png)');
+                      alright.play();
+                  } else if (cpuNumber === 1) {
+                      console.log("you lose -- paper beats rock");
+                      playerOne.css('display', 'none');
+                      cpu.css('content', 'url(img/paperwins.png)');
+                      loser.play();
+                      vs.css('content', 'none');
+                  } else if (cpuNumber === 2){
+                      console.log("you win -- rock beats scissor");
+                      playerOne.css('content', 'url(img/theRock.png)');
+                      cpu.css("display", "none");
+                      vs.css('content', 'none');
+                      wreckedSon.play();
+                  } else {
+                      console.log("error");
+                  }
+                setTimeout(fun, 5000);
+              }
+
+          function paperButton(paperNumber, cpuNumber){
               if(paperNumber === cpuNumber){
                   console.log("tie -- paper vs paper");
                   alright.play();
+                  playerOne.css('content', 'url(img/paperwins.png)');
+                  cpu.css('content', 'url(img/paperwins.png)');
               } else if (cpuNumber === 2) {
                   console.log("you lose -- scissor beats paper");
+                  playerOne.css('display', 'none');
+                  cpu.css('content', 'url(img/scissorsWoman.png)');
                   loser.play();
               } else if (cpuNumber === 0){
                   console.log("you win -- paper beats rock");
+                  cpu.css('content', 'url(img/rockLoser.png)');
+                  playerOne.css("display", "none");
                   wreckedSon.play();
               } else {
                   console.log("error");
               }
-          })
+              setTimeout(fun, 5000);
+          }
 
-          scissorsbtn.click(function(e){
-              e.preventDefault();
-              cpuNumber = getRandomInt();
-              console.log(cpuNumber);
-              console.log(scissorsbtn.val());
+          function scissorsButton(scissorsNumber, cpuNumber){
               if(scissorsNumber === cpuNumber){
                   console.log("tie -- scissors vs scissors");
+                  playerOne.css('content', 'url(img/scissorsWoman.png)');
+                  cpu.css('content', 'url(img/scissorsWoman.png)');
                   alright.play();
               } else if (cpuNumber === 0) {
                   console.log("you lose -- rock beats scissors ");
                   loser.play();
+                  cpu.css('content', 'url(img/theRock.png)');
+                  playerOne.css('display', 'none');
               } else if (cpuNumber === 1){
                   console.log("you win -- scissors beats paper");
+                  playerOne.css('content', 'url(img/scissorsWoman.png)');
+                  cpu.css('display', 'none');
                   wreckedSon.play();
               } else {
                   console.log("error");
               }
-          })
+              setTimeout(fun, 5000);
+          }
+          // rockbtn.click(function(e){
+          //     e.preventDefault();
+          //     cpuNumber = getRandomInt();
+          //     console.log(cpuNumber);
+          //     console.log(rockbtn.val());
+          //     playerOne.css('content', 'url(img/rockLeft.png)');
+          //     if (cpuNumber === rockNumber){
+          //         cpu.css('content', 'url(img/rockRight.png)');
+          //     } else if (cpuNumber === 1){
+          //         cpu.css('content', 'url(img/paperRight.png)');
+          //     } else if (cpuNumber === 2){
+          //         cpu.css('content', 'url(img/scissorsRight.png)');
+          //     }
+          //     if (rockNumber === cpuNumber){
+          //         console.log("tie - rock vs rock");
+          //         playerOne.css('content', 'url(img/theRock.png)');
+          //         cpu.css('content', 'url(img/theRock.png)');
+          //         alright.play();
+          //     } else if (cpuNumber === 1) {
+          //         console.log("you lose -- paper beats rock");
+          //         playerOne.css('display', 'none');
+          //         cpu.css('content', 'url(img/paperwins.png)');
+          //         loser.play();
+          //         vs.css('content', 'none');
+          //     } else if (cpuNumber === 2){
+          //         console.log("you win -- rock beats scissor");
+          //         playerOne.css('content', 'url(img/theRock.png)');
+          //         cpu.css("display", "none");
+          //         vs.css('content', 'none');
+          //         wreckedSon.play();
+          //     } else {
+          //         console.log("error");
+          //     }
+          // });
+
+          // paperbtn.click(function(e){
+          //     e.preventDefault();
+          //     cpuNumber = getRandomInt();
+          //     console.log(cpuNumber);
+          //     console.log(paperbtn.val());
+          //     if(paperNumber === cpuNumber){
+          //         console.log("tie -- paper vs paper");
+          //         alright.play();
+          //         playerOne.css('content', 'url(img/paperwins.png)');
+          //         cpu.css('content', 'url(img/paperwins.png)');
+          //     } else if (cpuNumber === 2) {
+          //         console.log("you lose -- scissor beats paper");
+          //         playerOne.css('content', 'url(img/paperwins.png)');
+          //         cpu.css('content', 'url(img/scissorsWoman.png)');
+          //         loser.play();
+          //     } else if (cpuNumber === 0){
+          //         console.log("you win -- paper beats rock");
+          //         cpu.css('content', 'url(img/rockLoser.png)');
+          //         playerOne.css("content", "url(img/paperwins.png");
+          //         wreckedSon.play();
+          //     } else {
+          //         console.log("error");
+          //     }
+          // })
+
+          // scissorsbtn.click(function(e){
+          //     e.preventDefault();
+          //     cpuNumber = getRandomInt();
+          //     console.log(cpuNumber);
+          //     console.log(scissorsbtn.val());
+          //     if(scissorsNumber === cpuNumber){
+          //         console.log("tie -- scissors vs scissors");
+          //         cpu.css('content', 'url(img/scissorsWoman.png)');
+          //         cpu.css('content', 'url(img/scissorsWoman.png)');
+          //         alright.play();
+          //     } else if (cpuNumber === 0) {
+          //         console.log("you lose -- rock beats scissors ");
+          //         loser.play();
+          //         cpu.css('content', 'url(img/theRock.png)');
+          //         playerOne.css('content', 'url(img/scissorsLeft.png)');
+          //     } else if (cpuNumber === 1){
+          //         console.log("you win -- scissors beats paper");
+          //         playerOne.css('content', 'url(img/scissorsWoman.png)');
+          //         cpu.css('content', 'url(img/paperwins.png)');
+          //         wreckedSon.play();
+          //     } else {
+          //         console.log("error");
+          //     }
+          // })
+
+
+          //table render
+          //
+          // function renderImage(results){
+          //     console.log(results);
+          //     var html = "<div class='image' >";
+          //     html += results;
+          //     html+= "<div>";
+          //     console.log(html);
+          //     return html;
+          // }
+
 
 
       })
