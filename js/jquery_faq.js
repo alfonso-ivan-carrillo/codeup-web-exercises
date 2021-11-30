@@ -15,18 +15,26 @@ $(document).ready(function(){
 
     $('#yellowBg').click(function(){
         $('ul').each(function(){
-                $(this).children('li').last().css('background', 'yellow');
+                $(this).children().last().css('background', 'yellow');
         })
     })
     $('h3').click(function(){
         $('ul').children().css('font-weight', 'bold');
     })
+    // instructor solution - using a class to accomplish solution - will need to create class
+/*    $('h3').click(function(){
+        $(this).next().children().toggleClass("emboldened");
+    });*/
 
     $('li').click(function(){
         $('ul').each(function(){
            $(this).children('li').first().css('color', 'blue');
         })
     })
+    // // instructor solution - using a class to complete - will need to create class
+    // $('li').click(function(){
+    //     $(this).parent().children().first().toggleClass('enbluened');
+    // })
 
     //div elements
     var divOne = $('#divOne');
