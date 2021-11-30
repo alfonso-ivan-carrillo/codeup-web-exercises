@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>jquery faq</title>
+
     <style>
         .invisible {
             visibility: hidden;
@@ -10,6 +11,27 @@
         .highlighted {
             background: #ef0;
         }
+        div {
+            background-color: #35298c;
+            border: 5px solid goldenrod;
+            width: 250px;
+            height: 250px;
+        }
+        section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .one{
+            content: url(img/portal-rickandmorty.png);
+        }
+        .two {
+            content: url(img/pickleRick.png);
+        }
+        .three {
+            content: url(img/rick-and-morty.png);
+        }
+
     </style>
 </head>
 <body>
@@ -45,6 +67,65 @@
         <dt>Is Pearl Jam a candidate for the Rock Hall of Fame?</dt>
         <dd class="invisible">Pearl Jam was inducted into the Rock Hall of Fame in 2017.</dd>
     </dl>
+  
+    <h1>Favorite Albums</h1>
+        <h3>Ten</h3>
+            <ul>
+                <li>Once</li>
+                <li>Even Flow</li>
+                <li>Alive</li>
+                <li>Why Go</li>
+                <li>Black</li>
+                <li>Jeremy</li>
+                <li>Oceans</li>
+                <li>Porch</li>
+                <li>Garden</li>
+                <li>Deep</li>
+                <li>Release</li>
+            </ul>
+        <h3>Vs.</h3>
+            <ul>
+                <li>Go</li>
+                <li>Animal</li>
+                <li>Daughter</li>
+                <li>Glorified G</li>
+                <li>Dissident</li>
+                <li>W.M.A.</li>
+                <li>Blood</li>
+                <li>Rearviewmirror</li>
+                <li>Rats</li>
+                <li>Elderly Woman Behind The Counter</li>
+                <li>Leash</li>
+                <li>Indifference</li>
+            </ul>
+        <h3>Vitalogy</h3>
+            <ul>
+                <li>Last Exit</li>
+                <li>Spin The Black Circle</li>
+                <li>Not For You</li>
+                <li>Tremor Christ</li>
+                <li>Nothingman</li>
+                <li>Whipping</li>
+                <li>Pry, To</li>
+                <li>Corduroy</li>
+                <li>Bugs</li>
+                <li>Satan's Bed</li>
+                <li>Better Man</li>
+                <li>Aye Davanita</li>
+                <li>Immortality</li>
+                <li>Hey Foxymophandlemama, That's Me</li>
+            </ul>
+        <button id="yellowBg" type="submit">Yellow Background</button>
+    <section>
+        <div id="divOne" class="one"></div>
+        <div id="divTwo" class="two"></div>
+        <div id="divThree" class="three"></div>
+    </section>
+    <section>
+          <button id="btnOne" type="submit">Shift Right</button>
+          <button id="btnTwo" type="submit">Shift Either Way</button>
+          <button id="btnThree" type="submit">Shift Left</button>
+    </section>
   <script src="js/jquery-2.2.4.js"></script>
   <script src="js/jquery_faq.js"></script>
 </body>
