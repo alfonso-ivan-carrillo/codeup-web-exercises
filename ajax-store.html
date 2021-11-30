@@ -53,6 +53,11 @@
     //     })
     // })
 
+// TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
         $('#submitBtn').click(function(){
             $.get('data/inventory.json').done(function(products){
                 $('#insertProducts').html('<td> </td>');
@@ -67,10 +72,7 @@
         })
 
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
+
 })();
 </script>
 
