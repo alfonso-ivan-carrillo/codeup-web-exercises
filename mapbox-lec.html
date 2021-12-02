@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MapBox Lecture</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+  <h1>Welcome to MapBox!</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  div map is being rendered in / start-->
+<div id='map' style='width: 800px; height: 600px;'></div>
+<!--  dive map is being rendered in / end-->
+
+
+<!--  must be above other scripts-->
+  <script src="js/keys.js"></script>
+<!--  above other scripts-->
+
+<script src="js/mapbox-geocoder-utils.js" ></script>
+
+  <script>
+      mapboxgl.accessToken = MAPBOX_KEY;
+      const map = new mapboxgl.Map({
+          container: 'map',               // <-- container ID
+          style: 'mapbox://styles/mapbox/streets-v11', // <-- style URL
+          center: [-98.48615, 29.426827],            // <-- starting position [lng, lat] - take array of longitude and latitude
+          zoom: 9                         // <-- starting zoom
+      });
+
+      // MARKERS
+
+      // Instantiate a new Marker object.
+      var codeup = new mapboxgl.Marker({
+          color: "blue"
+      }).setLngLat([-98.48615, 29.426827]).setDraggable(true); // makes marker draggable
+
+      // addTo(map) ->  attaches the marker to a map object
+      codeup.addTo(map);
+
+      // event - must use .on() method to recognize mapbox events- returns whatever action set once marker drag has ended
+      // drag event
+
+      codeup.on('dragend', function(){  // <-- gives you the lng and lat of where marker stopped
+          console.log(codeup.getLngLat());
+      })
+
+      // you can add additional markers as needed
+
+      // POP-Ups
+      // chainable example
+      var popup = new mapboxgl.Popup().setLngLat(codeup.getLngLat()).setHTML("<h3>Hello</h3>").addTo(map);
+
+      // popup.setLngLat(codeup.getLngLat); // <-- set lng/lat, codeup.getLngLat passess the lng/lat of marker
+
+
+
+
+  </script>
+
+</body>
+</html>
