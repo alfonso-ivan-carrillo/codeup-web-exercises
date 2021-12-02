@@ -52,5 +52,13 @@
         "outdoor"
     ],
     "price": 11
+}, {
+    "title": "shovel",
+    "quantity": 11,
+    "categories": [
+        "tool",
+        "outdoor"
+    ],
+    "price": 12
 }
 ]
