@@ -57,7 +57,7 @@ function reverseGeocode(coordinates, token) {
             return data.features[0].place_name;
         });
 }
-
- reverseGeocode({lat: 32.77, lng: -96.79}, MAPBOX_KEY).then(function(results) {
-     console.log(results);
-})
+//
+//  reverseGeocode({lat: 32.77, lng: -96.79}, MAPBOX_KEY).then(function(results) {
+//      console.log(results);
+// })

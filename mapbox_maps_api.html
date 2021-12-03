@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MapBox Maps API</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+
+
+<!--// thai chili coordinates: -98.4434645, 29.577097-->
+<!--// pappadeaux: -98.4903421, 29.5196243-->
+<!--// pasha: -98.3274891, 29.575897-->
+
+<!--// map div-->
+<div id='map' style='width: 800px; height: 600px;'></div>
+
+
+<!--start: address search label and button-->
+<br>
+<label for="addressSearch">Address Search</label>
+<input id="addressSearch"  name="search" type="text">
+<button id="btn-submit">Search</button>
+<!--end: address search label and button-->
+
+
+<!--start: reference to local key-->
+<script src="js/keys.js"></script>
+<!--end: reference to local key-->
+
+<!--start: linking js file-->
+<script src="js/mapbox-geocoder-utils.js" ></script>
+<script src="js/jquery-2.2.4.js"></script>
+<!--end: linking js file-->
+
+<script>
+
+    mapboxgl.accessToken = MAPBOX_MAPS_API_KEY;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.4434645, 29.577097], // starting position [lng, lat]
+        zoom: 11 // starting zoom
+    });
+
+    // map.on('load', () =>{
+    //     map.addSource('restaurants', {
+    //         'type': 'geojson',
+    //         'data': {
+    //             'type': 'FeatureCollection',
+    //             'features': [{
+    //                 'type': 'Feature',
+    //                 'properties': {
+    //                     'description': "<strong>Thai Chili</strong><p>Open 7 days a week, try their pan fried noodles</p>",
+    //                 'icon': "theatre-15"
+    //                 },
+    //                 'geometry': {
+    //                     'type': "Point",
+    //                     'coordinates': [-98.4434645, 29.577097]
+    //                 }
+    //                 },
+    //                 {
+    //                 'type': 'Feature',
+    //                 'properties': {
+    //                     'description': "<strong>Pappadeaux SeaFood</strong><p>Open 7 days a week, try their soft shell crabs</p>",
+    //                     'icon': "theatre-15"
+    //                 },
+    //                 'geometry': {
+    //                     'type': "Point",
+    //                     'coordinates': [-98.4903421, 29.5196243]
+    //                 }
+    //                 },
+    //                 {
+    //                     'type': 'Feature',
+    //                     'properties': {
+    //                         'description': "<strong>Pasha Mediterranean Grill</strong><p>Open 7 days a week, try there pan fried noodles</p>",
+    //                         'icon': "theatre-15"
+    //                     },
+    //                     'geometry': {
+    //                         'type': "Point",
+    //                         'coordinates': [-98.3274891, 29.575897]
+    //                     }
+    //
+    //             }]
+    //         }
+    //     })
+    // })
+    //
+    // map.addLayer({
+    //     'id': "restaurants",
+    //     'type': 'symbol',
+    //     'source': "restaurants",
+    //     'layout': {
+    //         'icon-image': '{icon}',
+    //         'icon-allow-overlap': true
+    //     }
+    // });
+    // // click events
+    // map.on('click', 'restaurants', (e) =>{
+    //     const coordinates = e.features[0].geometry.coordinates.slice();
+    //     const description = e.features[0].properties.description;
+    //     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+    //         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    //     }
+    //     new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(map);
+    // })
+
+    // geocoding function - marker created when function called to a specific address
+    $("#btn-submit").click(function(){
+        var address = $("#addressSearch").val();
+        console.log(address);
+        geocode(address, MAPBOX_MAPS_API_KEY).then(function(results){
+            console.log(results);
+            var location = new mapboxgl.Marker({}).setLngLat([results[0], results[1]]).addTo(map);
+            map.setCenter([results[0], results[1]]);
+            map.setZoom(15);
+        })
+    })
+
+</script>
+
+</body>
+</html>
