@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <title>Weather Map Project</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
-    <header>
+    <header class="text-center">
         <h1>Weather Map</h1>
     </header>
     <section>
         <div class="card-group">
-            <div class="card mb-3" style="max-width: 540px; background-color: lightblue;">
-                <span id="currentImage" class="card-img-top" alt="icon" style="height: 50px; width: 50px"></span>
+            <div class="card mb-3 rounded mx-auto d-block text-center" style="max-width: 540px; background-color: lightblue;">
+                <h2 class="card-title">Today's Weather</h2>
+                <span id="currentImage" class="card-img-top" alt="icon" style="height: 100px; width: 100px"></span>
                 <!--                current temp card-->
                 <div class="card-body">
-                    <h5 class="card-title">Today's Weather</h5>
+
                     <p id="currentConditions" class="card-text">clouds</p>
                     <span id="currentTemp">current</span>
                     <span id="maxTemp">max</span>
@@ -29,14 +33,15 @@
             </div>
         </div>
         <br>
-        <div class="card-group">
+        <div class="card-group ">
 
-            <div class="card">
-<!--                <img src="..." class="card-img-top" alt="...">-->
+            <div class="card rounded mx-auto d-block text-center">
+                <h5 class="card-title">Tomorrow's Forecast</h5>
+                <span id="nextDayImage" class="card-img-top text-center" alt="icon" style="height: 50px; width: 50px"></span>
                 <div class="card-body">
-                    <h5 class="card-title">Tomorrow's Forecast</h5>
-                    <p class="card-text">TWeather.......blah blah blah.</p>
-                    <span id="nextDaysTemps"></span>
+
+                    <p id="nextDayConditions" class="card-text">TWeather.......blah blah blah.</p>
+<!--                    <span id="nextDaysTemps"></span>-->
                     <span id="maxNextTemp">max</span>
                     <span id="minNextTemp">min</span>
                 </div>
@@ -45,12 +50,13 @@
                 </div>
             </div>
 <!--            2 days after temp-->
-            <div class="card">
-                <!--                <img src="..." class="card-img-top" alt="...">-->
+            <div class="card rounded mx-auto d-block text-center">
+                <h5 id="dayTwo" class="card-title">Tomorrow's Forecast</h5>
+                <span id="twoDaysAfterImage" class="card-img-top" alt="icon" style="height: 50px; width: 50px"></span>
                 <div class="card-body">
-                    <h5 class="card-title">Tomorrow's Forecast</h5>
-                    <p class="card-text">TWeather.......blah blah blah.</p>
-                    <span id="twoDaysAfter">current</span>
+
+                    <p id="twoDaysAfterConditions" class="card-text">TWeather.......blah blah blah.</p>
+<!--                    <span id="twoDaysAfter">current</span>-->
                     <span id="twoDaysAfterMax">max</span>
                     <span id="twoDaysAfterMin">min</span>
                 </div>
@@ -59,12 +65,13 @@
                 </div>
             </div>
 <!--            3 days after -->
-            <div class="card">
-                <!--                <img src="..." class="card-img-top" alt="...">-->
+            <div class="card rounded mx-auto d-block text-center">
+                <h5 id="dayThree" class="card-title">Tomorrow's Forecast</h5>
+                <span id="threeDaysAfterImage" class="card-img-top" alt="icon" style="height: 50px; width: 50px"></span>
                 <div class="card-body">
-                    <h5 class="card-title">Tomorrow's Forecast</h5>
-                    <p class="card-text">TWeather.......blah blah blah.</p>
-                    <span id="threeDaysAfter">current</span>
+
+                    <p id="threeDaysAfterConditions" class="card-text">TWeather.......blah blah blah.</p>
+<!--                    <span id="threeDaysAfter">current</span>-->
                     <span id="threeDaysAfterMax">max</span>
                     <span id="threeDaysAfterMin">min</span>
                 </div>
@@ -73,12 +80,13 @@
                 </div>
             </div>
 <!--            4 day's after-->
-            <div class="card">
-                <!--                <img src="..." class="card-img-top" alt="...">-->
+            <div class="card rounded mx-auto d-block text-center">
+                <h5 id="dayFour" class="card-title">Tomorrow's Forecast</h5>
+                <span id="fourDaysAfterImage" class="card-img-top" alt="icon" style="height: 50px; width: 50px"></span>
                 <div class="card-body">
-                    <h5 class="card-title">Tomorrow's Forecast</h5>
-                    <p class="card-text">TWeather.......blah blah blah.</p>
-                    <span id="fourDaysAfterTemps">current</span>
+
+                    <p id="fourDaysAfterConditions" class="card-text">TWeather.......blah blah blah.</p>
+<!--                    <span id="fourDaysAfterTemps">current</span>-->
                     <span id="fourDaysAfterMax">max</span>
                     <span id="fourDaysAfterMin">min</span>
                 </div>
@@ -89,8 +97,18 @@
         </div>
 
     </section>
-
-
+    <br>
+    <main>
+        <div class="container">
+          <div id='map' style='width: 1000px; height: 700px;'></div>
+        </div>
+        <!--start: address search label and button-->
+        <br>
+        <label for="addressSearch">Address Search</label>
+        <input id="addressSearch"  name="search" type="text">
+        <button id="btn-submit">Search</button>
+        <!--end: address search label and button-->
+    </main>
 
 
 
