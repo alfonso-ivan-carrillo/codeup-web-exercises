@@ -16,7 +16,6 @@
 function geocode(search, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
-// below line - concat the baseurl + endpoint + this codes it into a query string sent by the browswer + json + query + maptoken
     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
         .then(function(res) {
             return res.json();
@@ -25,10 +24,6 @@ function geocode(search, token) {
             return data.features[0].center;
         });
 }
-// for above function
-// geocode("San Antonio", MAPBOX_KEY).then(function(results) {
-//     console.log(results);
-// })
 
 
 /***
@@ -48,7 +43,6 @@ function reverseGeocode(coordinates, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-        // .then is needed
         .then(function(res) {
             return res.json();
         })
@@ -57,7 +51,3 @@ function reverseGeocode(coordinates, token) {
             return data.features[0].place_name;
         });
 }
-//
-//  reverseGeocode({lat: 32.77, lng: -96.79}, MAPBOX_KEY).then(function(results) {
-//      console.log(results);
-// })

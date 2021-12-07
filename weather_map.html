@@ -13,42 +13,49 @@
         <h1>Weather Map</h1>
     </header>
     <section>
-        <div class="card-group">
-            <div class="card mb-3 rounded mx-auto d-block text-center" style="max-width: 540px; background-color: lightblue;">
-                <h2 class="card-title">Today's Weather</h2>
+<!--        current day card-->
+        <div class="card-group container justify-content-around">
+            <div class="card mb-3 rounded  d-block text-center" style="max-width: 540px; height: 420px; background-color: lightblue;">
+                <h2 id="place" class="card-title"></h2>
                 <span id="currentImage" class="card-img-top" alt="icon" style="height: 100px; width: 100px"></span>
                 <!--                current temp card-->
                 <div class="card-body">
 
-                    <p id="currentConditions" class="card-text">clouds</p>
-                    <span id="currentTemp">current</span>
-                    <span id="maxTemp">max</span>
-                    <span id="minTemp">min</span>
+                    <p id="currentConditions" class="card-text">loading....</p>
+                    <span id="currentTemp">loading....</span>
+                    <span id="maxTemp">loading....</span>
+                    <span id="minTemp">loading....</span>
 
                 </div>
-                <!--                next days temp-->
                 <div class="card-footer">
                     <small id="currentDate" class="text-muted">footer</small>
                 </div>
             </div>
+            <div class="rounded d-block text-center">
+                <img src="img/weather.gif" alt="weather" style="max-width: 540px; height: 420px">
+            </div>
         </div>
-        <br>
-        <div class="card-group ">
 
+        <br>
+        <!--                next days temp-->
+        <div class="container-fluid">
+        <div class="card-group ">
             <div class="card rounded mx-auto d-block text-center">
+
                 <h5 class="card-title">Tomorrow's Forecast</h5>
                 <span id="nextDayImage" class="card-img-top text-center" alt="icon" style="height: 50px; width: 50px"></span>
                 <div class="card-body">
 
-                    <p id="nextDayConditions" class="card-text">TWeather.......blah blah blah.</p>
+                    <p id="nextDayConditions" class="card-text">loading....</p>
 <!--                    <span id="nextDaysTemps"></span>-->
-                    <span id="maxNextTemp">max</span>
-                    <span id="minNextTemp">min</span>
+                    <span id="maxNextTemp">loading....</span>
+                    <span id="minNextTemp">loading....</span>
                 </div>
                 <div class="card-footer">
                     <small id="nextDaysDate" class="text-muted">footer</small>
                 </div>
             </div>
+
 <!--            2 days after temp-->
             <div class="card rounded mx-auto d-block text-center">
                 <h5 id="dayTwo" class="card-title">Tomorrow's Forecast</h5>
@@ -57,8 +64,8 @@
 
                     <p id="twoDaysAfterConditions" class="card-text">TWeather.......blah blah blah.</p>
 <!--                    <span id="twoDaysAfter">current</span>-->
-                    <span id="twoDaysAfterMax">max</span>
-                    <span id="twoDaysAfterMin">min</span>
+                    <span id="twoDaysAfterMax">loading....</span>
+                    <span id="twoDaysAfterMin">loading....</span>
                 </div>
                 <div class="card-footer">
                     <small id="twoDaysAfterDate" class="text-muted">footer</small>
@@ -72,8 +79,8 @@
 
                     <p id="threeDaysAfterConditions" class="card-text">TWeather.......blah blah blah.</p>
 <!--                    <span id="threeDaysAfter">current</span>-->
-                    <span id="threeDaysAfterMax">max</span>
-                    <span id="threeDaysAfterMin">min</span>
+                    <span id="threeDaysAfterMax">loading....</span>
+                    <span id="threeDaysAfterMin">loading....</span>
                 </div>
                 <div class="card-footer">
                     <small id="threeDaysAfterDate" class="text-muted">footer</small>
@@ -87,26 +94,41 @@
 
                     <p id="fourDaysAfterConditions" class="card-text">TWeather.......blah blah blah.</p>
 <!--                    <span id="fourDaysAfterTemps">current</span>-->
-                    <span id="fourDaysAfterMax">max</span>
-                    <span id="fourDaysAfterMin">min</span>
+                    <span id="fourDaysAfterMax">loading....</span>
+                    <span id="fourDaysAfterMin">loading....</span>
                 </div>
                 <div class="card-footer">
                     <small id="fourDaysAfterDate" class="text-muted">footer</small>
                 </div>
             </div>
         </div>
+        </div>
 
     </section>
     <br>
     <main>
         <div class="container">
-          <div id='map' style='width: 1000px; height: 700px;'></div>
+          <div class="border border-info" id='map' style='width: 1000px; height: 700px;'></div>
         </div>
         <!--start: address search label and button-->
         <br>
-        <label for="addressSearch">Address Search</label>
-        <input id="addressSearch"  name="search" type="text">
-        <button id="btn-submit">Search</button>
+        <div class="card-group">
+
+            <div class="card-body text-center">
+                <h6>Search by Address</h6>
+                <label for="addressSearch">Address Search</label>
+                <input id="addressSearch"  name="search" type="text">
+                <button id="btn-submit">Search</button>
+            </div>
+            <div class="card-body text-center">
+                <h6>Search by Coordinates</h6>
+                <input id="longitude"  name="search" type="text" placeholder="Longitude">
+                <input id="latitude"  name="search" type="text" placeholder="Latitude">
+                <button id="btn-coordinate-search" type="submit">Search</button>
+
+            </div>
+        </div>
+
         <!--end: address search label and button-->
     </main>
 

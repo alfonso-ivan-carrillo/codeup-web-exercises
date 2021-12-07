@@ -9,7 +9,9 @@ $(document).ready(function(){
         zoom: 9 // starting zoom
     });
 
-    // mapbox call api
+
+
+    // mapbox call api - geo coding
     function geocode(search, token) {
         var baseUrl = 'https://api.mapbox.com';
         var endPoint = '/geocoding/v5/mapbox.places/';
@@ -19,13 +21,29 @@ $(document).ready(function(){
                 return res.json();
                 // to get all the data from the request, comment out the following three lines...
             }).then(function(data) {
+                console.log(data);
+                $("#place").html("<h2>" + data.features[0].text + "</h2>");
                 return data.features[0].center;
             });
     }
-// for above function
-// geocode("San Antonio", MAPBOX_KEY).then(function(results) {
-//     console.log(results);
-// })
+
+    // mapbox reverse - reverse geo coding
+    function reverseGeocode(coordinates, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            })
+            // to get all the data from the request, comment out the following three lines...
+            .then(function(data) {
+                console.log(data);
+                $('#place').html("<h2>" + data.features[3].text + "</h2>");
+                return data.features[0].place_name;
+            });
+    }
+
+
 
     // api call function
     $.get("http://api.openweathermap.org/data/2.5/onecall", {
@@ -38,12 +56,11 @@ $(document).ready(function(){
     APPID: OPEN_WEATHER_KEY
     }).done(function(data){
         console.log(data);
-
-        console.log(new Date(data.daily[0].dt * 1000)); // to translate date/time
+        //
+        // console.log(new Date(data.daily[0].dt * 1000)); // to translate date/time
         // console.log(data.daily[1]);
-        var today = [];
-        today = new Date(data.daily[0].dt * 1000);
-
+        // var today = [];
+        // today = new Date(data.daily[0].dt * 1000);
         dailyTemps(data);
         nextDayTemps(data);
         twoDays(data);
@@ -60,7 +77,7 @@ $(document).ready(function(){
         var month = months[a.getMonth()];
         var date = a.getDate();
         var day = days[a.getDay()];
-        console.log(day);
+        // console.log(day);
         // var hour = a.getHours();
         // var min = a.getMinutes();
         // var sec = a.getSeconds();
@@ -72,7 +89,7 @@ $(document).ready(function(){
         var a = new Date(input * 1000);
         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         var day = days[a.getDay()];
-        console.log(day);
+        // console.log(day);
         return day;
     }
 
@@ -120,7 +137,7 @@ $(document).ready(function(){
     function dailyTemps(data){
         var td = timeConverter(data.daily[0].dt);
         var icon0 = imageSelector(data.daily[0].weather[0].icon);
-        console.log(icon0)
+        // console.log(icon0)
         $('#currentImage').css("content", icon0);
         $('#currentConditions').html("<p>Current conditions: Feels like " + data.current.feels_like.toFixed(0) + " with " + data.current.weather[0].description  + "</p>");
         $('#currentTemp').html("<p>Current Tempature: "+ data.current.temp.toFixed(0) + "&#176F </p>");
@@ -134,8 +151,8 @@ $(document).ready(function(){
     // card 2 - next day forecast
     function nextDayTemps(data){
         var nextD = timeConverter(data.daily[1].dt);
-        console.log(data.daily[1].temp);
-        console.log(nextD);
+        // console.log(data.daily[1].temp);
+        // console.log(nextD);
         var icon1 = imageSelector(data.daily[1].weather[0].icon);
         // var highTemp = data.daily[1].temp.max;
         // var lowTemp = data.daily[1].temp.min;
@@ -143,8 +160,8 @@ $(document).ready(function(){
         // $('#nextDaysTemps').html("<p>Tomorow's Average Tempature: " + ((highTemp + lowTemp) / 2).toFixed(0) + "</p>");
         $('#nextDayImage').css("content", icon1);
         $('#nextDayConditions').html("<p> Expected Conditions: " + data.daily[1].weather[0].description + "</p>" );
-        $('#maxNextTemp').html("<p>Tomorrow's Forecasted High Tempature: " + data.daily[1].temp.max.toFixed(0) + "&#176F &#8593</p>");
-        $('#minNextTemp').html("<p>Tomorrow's Forecasted Low Tempature: "+ data.daily[1].temp.min.toFixed(0) + "&#176F &#8595</p>");
+        $('#maxNextTemp').html("<p>Forecasted High Tempature: " + data.daily[1].temp.max.toFixed(0) + "&#176F &#8593</p>");
+        $('#minNextTemp').html("<p>Forecasted Low Tempature: "+ data.daily[1].temp.min.toFixed(0) + "&#176F &#8595</p>");
         $('#nextDaysDate').html("<small>Date: " + nextD + "</small>");
 
     }
@@ -157,7 +174,7 @@ $(document).ready(function(){
         var dayTwo = daySelector(data.daily[2].dt);
         var icon2 = imageSelector(data.daily[2].weather[0].icon)
         // var day2 = new Date(data.daily[2].dt * 1000);
-        console.log(typeof day2);
+        // console.log(typeof day2);
         $('#twoDaysAfterImage').css("content", icon2);
         $('#dayTwo').html("<h5>" + dayTwo + "</h5>");
         $('#twoDaysAfterConditions').html("<p>Expected Conditions: " + data.daily[2].weather[0].description + "</p>");
@@ -200,27 +217,28 @@ $(document).ready(function(){
         $('#fourDaysAfterMin').html("<p>Forecasted Low Tempature: " + data.daily[4].temp.min.toFixed(0) + "&#176F &#8595</p>");
         $('#fourDaysAfterDate').html("<small>Date: " + day4 + "</small>");
     }
+
+    // geo coding - search event - button
     $("#btn-submit").click(function(){
         var address = $("#addressSearch").val();
         console.log(address);
         geocode(address, MAPBOX_MAPS_API_KEY).then(function(results){
-            markerWeather(results);
+            console.log(results);
+            // markerWeather(results);
             var location = new mapboxgl.Marker({}).setLngLat([results[0], results[1]]).setDraggable(true).addTo(map);
             map.setCenter([results[0], results[1]]);
             map.setZoom(15);
+
             markerWeather(results);
         })
     })
 
+    // function onDragEnd(location){
+    //     console.log(location.getLngLat());
+    // }
 
-
-
-
+    // search function - current and forecasted weather
     function markerWeather(results){
-        // var saLon = -98.4936;
-        // var saLat = 29.4241;
-        // q: "San Antonio, US",  // ways to look up weather for san antonio, currently using lat/lon
-        // id: 4726206.           // by id
         console.log(results);
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
             lat: results[1],
@@ -230,19 +248,44 @@ $(document).ready(function(){
             APPID: OPEN_WEATHER_KEY
         }).done(function(data){
             console.log(data);
-
-
-
             dailyTemps(data);
             nextDayTemps(data);
             twoDays(data);
             threeDays(data);
-            console.log(fourDays(data));
-
-
+            fourDays(data);
         });
     }
 
+    // reverse geo coding - button
+    $('#btn-coordinate-search').click(function(){
+        var lat1 = $('#latitude').val();
+        var lat = Number(lat1);
+        var lng1 = $('#longitude').val();
+        var lng = Number(lng1);
+        var marker = [lng, lat];
+        markerWeather(marker);
+        reverseGeocode({lat,lng}, MAPBOX_MAPS_API_KEY).then(function(results){
+
+            var location = new mapboxgl.Marker({}).setLngLat({lng, lat}).setDraggable(true).addTo(map);
+            map.setCenter(marker);
+            map.setZoom(15);
+
+            // console.log(results);
+            // console.log(typeof results)
+            // $('#place').html("<h2> Today in " +  results);
+        })
+
+    })
+
+    map.on('load', () => {
+        var lng = -98.4936;
+        var lat = 29.4241;
+        reverseGeocode({lng, lat}, MAPBOX_MAPS_API_KEY).then(function(results){
+            console.log(results);
+            // $('#place').html('<h2>' + results + '</h2>');
+
+        })
+    })
 
 
 
