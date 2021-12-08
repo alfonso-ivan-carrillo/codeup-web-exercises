@@ -61,10 +61,28 @@ const experience = users.reduce((total, years) => {
 }
 console.log(getAvg(users));
 
-var longestEmail = users.reduce((total, longest) => {
-    let test = 0;
-    if ( total[longest] += 1)
-    return test;
-});
 
-console.log(longestEmail);
+// for (var i = 0; users.)
+console.log(users[email])
+console.log(users[0].email.length)
+
+// const longestEmail = users.reduce((previousValue, currentValue)=>{
+//         if(previousValue.length < currentValue.email.length){
+//             previousValue + currentValue.email;
+//         }
+//         return previousValue;
+// },{});
+
+// console.log(longestEmail)
+
+
+// let longestEmail = users.reduce((uniqueSpecialty, restaurant) => {
+//     if(!uniqueSpecialty.includes(restaurant.email)){
+//         uniqueSpecialty.push(restaurant.email);
+//     }
+//     return uniqueSpecialty
+// }, []);
+
+const nameString = users.reduce((total, names)=> total + names.name,[]);
+console.log(nameString)
+
