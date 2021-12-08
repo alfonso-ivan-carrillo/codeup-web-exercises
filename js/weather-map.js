@@ -225,17 +225,22 @@ $(document).ready(function(){
         geocode(address, MAPBOX_MAPS_API_KEY).then(function(results){
             console.log(results);
             // markerWeather(results);
-            var location = new mapboxgl.Marker({}).setLngLat([results[0], results[1]]).setDraggable(true).addTo(map);
+            const location = new mapboxgl.Marker({}).setLngLat([results[0], results[1]]).setDraggable(true).addTo(map);
             map.setCenter([results[0], results[1]]);
             map.setZoom(15);
-
             markerWeather(results);
+            console.log(location);
         })
     })
+//
+    function markerDrag(coordinates){
+        var marker = new mapboxgl.Marker({}).setlngLat(coordinates[0],coordinates[1]).setDraggable(true).addTo(map);
+        map.setCenter([coordinates[0], coordinates[1]]);
+        map.setZoom(15);
+        console.log(marker);
+    }
 
-    // function onDragEnd(location){
-    //     console.log(location.getLngLat());
-    // }
+//
 
     // search function - current and forecasted weather
     function markerWeather(results){
@@ -266,10 +271,10 @@ $(document).ready(function(){
         markerWeather(marker);
         reverseGeocode({lat,lng}, MAPBOX_MAPS_API_KEY).then(function(results){
 
-            var location = new mapboxgl.Marker({}).setLngLat({lng, lat}).setDraggable(true).addTo(map);
+            const location = new mapboxgl.Marker({}).setLngLat({lng, lat}).setDraggable(true).addTo(map);
             map.setCenter(marker);
             map.setZoom(15);
-
+        onDragEnd(location);
             // console.log(results);
             // console.log(typeof results)
             // $('#place').html("<h2> Today in " +  results);
