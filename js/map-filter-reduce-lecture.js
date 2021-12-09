@@ -148,9 +148,17 @@ $(document).ready(function(){
     console.log(combinedSentence);
 
 
+let dineIn = foodOptions.filter((restaurant) => restaurant.type === "dine-in");
+console.log(dineIn);
 
+let favDineInRestaurant = dineIn.reduce((bucket, restaurant) => {
+    if (restaurant.specialty === "mexican-food"){
+        bucket.push(restaurant);
+    }
+    return bucket
+}, []);
 
-
+console.log(favDineInRestaurant);
 
 
 
