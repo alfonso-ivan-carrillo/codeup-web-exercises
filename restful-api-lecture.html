@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restful API Lecture</title>
+</head>
+<body>
+  <h1>RESTful API Lecture</h1>
+
+
+  <script>
+      const API_URL = `https://acoustic-little-chive.glitch.me/minerals`;
+
+      // Get Request
+
+      let getAllMinerals = () => {
+          return fetch(API_URL).then(response => response.json()).catch(error => console.error(error));
+      }
+
+      getAllMinerals().then(data => console.log(data)).catch(error => console.error(error));
+
+      // get request by ID
+
+      let getMineralByID = (id) => {
+          return fetch(`${API_URL}/${id}`).then(response => response.json()).catch(error => console.error(error))
+      }
+
+      getMineralByID(3).then(data => console.log(data)).catch(error => console.error(error)).catch(error => console.error(error));
+
+
+
+      // edit a post - put vs. patch
+      // put - requires you to resubmit the entire entity.
+      // patch - only edits properties that currently exist in the posted entity.
+
+      let editMineral = (mineral) => {
+          let options = {
+              method: ' PUT',
+              headers: {    // content-type - This tells the server what type of data we are sending with our request. When interacting with a Json API, this will usually be application/json.
+                "Content-Type": 'application/json',
+              },
+              // a request body - additional content that is included along with our request, usually a JSON string that represents the resources(s) being created/modified.
+              body: JSON.stringify(mineral)     // convert the JS object into a JSON string before sending it to the server.
+          }
+          return fetch(`${API_URL}/${mineral.id}`, options).then(response => response.json()).catch(error => console.error(error));
+      }
+
+
+      let editedMineral = {
+          name: "olivine",
+          color: "yellow green",
+          hardness: 7,
+          cleavage: "brittle",
+          luster: "vitreous",
+          id: 5
+      }
+
+      editMineral(editedMineral).then(data => console.log(data)).catch(error => console.error(error));
+
+      // patch
+      // update the option: PATCH - you would only then need to provide the attribute you are changing like color: dark green and id 5
+
+      // Post Request
+
+      let regulusRock = {  // new rock being created
+          name: "regulus",
+          color: "blue",
+          hardness: 10,
+          cleavage: "conchoidal",
+          luster: "metallic",
+          id: 6
+      }
+
+      let createMineral = (mineral) => {
+          let options = {
+              method: 'POST',
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(mineral)
+          }
+          return fetch(API_URL, options).then(response => response.json()).catch(error => console.error(error));
+      }
+
+      createMineral(regulusRock).then(data => console.log(data)).catch(error => console.error(error));
+
+      // delete request
+
+      let deleteMineral = (id) => {
+          let options = {
+              method: "DELETE",
+              headers: {
+                  "Content-Type": "application/json"
+              }
+          }
+          return fetch(`${API_URL}/${id}`, options).then(response => response.json()).catch(error => console.error(error));
+      }
+
+      // most api's will send a response to ensure you want to delete item, in this case you wouldn't, since a simple api/example
+      // in this case you wouldn't get a message back if successful, but you can add a message like .then(
+      deleteMineral(2)
+
+
+
+  </script>
+</body>
+</html>
