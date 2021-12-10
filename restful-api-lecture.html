@@ -17,7 +17,7 @@
           return fetch(API_URL).then(response => response.json()).catch(error => console.error(error));
       }
 
-      getAllMinerals().then(data => console.log(data)).catch(error => console.error(error));
+      getAllMinerals().then(data => console.log(data));
 
       // get request by ID
 
@@ -25,7 +25,7 @@
           return fetch(`${API_URL}/${id}`).then(response => response.json()).catch(error => console.error(error))
       }
 
-      getMineralByID(3).then(data => console.log(data)).catch(error => console.error(error)).catch(error => console.error(error));
+      getMineralByID(3).then(data => console.log(data));
 
 
 
@@ -55,7 +55,7 @@
           id: 5
       }
 
-      editMineral(editedMineral).then(data => console.log(data)).catch(error => console.error(error));
+      editMineral(editedMineral).then(data => console.log(data));
 
       // patch
       // update the option: PATCH - you would only then need to provide the attribute you are changing like color: dark green and id 5
@@ -82,7 +82,7 @@
           return fetch(API_URL, options).then(response => response.json()).catch(error => console.error(error));
       }
 
-      createMineral(regulusRock).then(data => console.log(data)).catch(error => console.error(error));
+      createMineral(regulusRock).then(data => console.log(data));
 
       // delete request
 
@@ -98,7 +98,7 @@
 
       // most api's will send a response to ensure you want to delete item, in this case you wouldn't, since a simple api/example
       // in this case you wouldn't get a message back if successful, but you can add a message like .then(
-      deleteMineral(2)
+      deleteMineral(3)
 
 
 
