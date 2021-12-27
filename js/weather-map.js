@@ -22,7 +22,8 @@ $(document).ready(function(){
                 // to get all the data from the request, comment out the following three lines...
             }).then(function(data) {
                 console.log(data);
-                $("#place").html("<h2>" + data.features[0].text + "</h2>");
+                console.log(data.features[1].context[1].text);
+                $("#place").html("<h2>" + data.features[1].context[1].text + "</h2>");
                 return data.features[0].center;
             });
     }
@@ -39,6 +40,7 @@ $(document).ready(function(){
             .then(function(data) {
                 console.log(data);
                 $('#place').html("<h2>" + data.features[3].text + "</h2>");
+                console.log(data.features[0].place_name);
                 return data.features[0].place_name;
             });
     }
