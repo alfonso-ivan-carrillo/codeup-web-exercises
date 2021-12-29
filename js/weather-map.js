@@ -220,6 +220,20 @@ $(document).ready(function(){
         $('#fourDaysAfterDate').html("<small>Date: " + day4 + "</small>");
     }
 
+
+    // const marker = new mapboxgl.Marker({
+    //     draggable: true
+    // }).setLngLat([-98.4936, 29.4241]).addTo(map);
+    //
+    // function onDragEnd(){
+    //     var lngLat = marker.getLngLat();
+    //     console.log(lngLat);
+    //     reverseGeocode(({lat:lngLat[1], lng: lngLat[0]}), MAPBOX_MAPS_API_KEY);
+    // }
+    // marker.on('dragend', onDragEnd);
+
+
+
     // geo coding - search event - button
     $("#btn-submit").click(function(){
         var address = $("#addressSearch").val();
@@ -227,20 +241,16 @@ $(document).ready(function(){
         geocode(address, MAPBOX_MAPS_API_KEY).then(function(results){
             console.log(results);
             // markerWeather(results);
-            const location = new mapboxgl.Marker({}).setLngLat([results[0], results[1]]).setDraggable(true).addTo(map);
+            // const location = new mapboxgl.Marker({draggable:true}).setLngLat([results[0], results[1]]).addTo(map);
+            const marker = new mapboxgl.Marker({draggable: true}).setLngLat([results[0], results[1]]).addTo(map);
             map.setCenter([results[0], results[1]]);
             map.setZoom(15);
+            // marker.on('dragend', onDragEnd);
             markerWeather(results);
             console.log(location);
         })
     })
 //
-    function markerDrag(coordinates){
-        var marker = new mapboxgl.Marker({}).setlngLat(coordinates[0],coordinates[1]).setDraggable(true).addTo(map);
-        map.setCenter([coordinates[0], coordinates[1]]);
-        map.setZoom(15);
-        console.log(marker);
-    }
 
 //
 
